@@ -1,0 +1,27 @@
+rootProject.name = 'fineract-no-loans'
+
+// CORE MODULES (KEEP THESE)
+include 'fineract-core'
+include 'fineract-provider'
+include 'fineract-client'
+include 'fineract-accounting'
+include 'fineract-charge'
+include 'fineract-command'
+include 'fineract-cob'
+include 'fineract-savings'
+include 'fineract-tax'
+include 'fineract-report'
+include 'fineract-document'
+include 'fineract-validation'
+include 'fineract-war'
+include 'fineract-avro-schemas'
+include 'fineract-group'
+include 'fineract-organisation'
+
+// CUSTOM MODULES (without loan ones)
+include 'custom:acme:event:externalevent'
+include 'custom:acme:event:starter'
+include 'custom:acme:note:service'
+include 'custom:acme:note:starter'
+
+
