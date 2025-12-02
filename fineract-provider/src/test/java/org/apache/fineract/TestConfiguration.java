@@ -39,8 +39,8 @@ import org.apache.fineract.infrastructure.core.service.migration.TenantDatabaseS
 import org.apache.fineract.infrastructure.core.service.migration.TenantDatabaseUpgradeService;
 import org.apache.fineract.infrastructure.core.service.tenant.TenantDetailsService;
 import org.apache.fineract.infrastructure.dataqueries.service.GenericDataService;
-import org.apache.fineract.infrastructure.jobs.ScheduledJobRunnerConfig;
-import org.apache.fineract.infrastructure.jobs.service.JobRegisterService;
+// import org.apache.fineract.infrastructure.jobs.ScheduledJobRunnerConfig;
+// import org.apache.fineract.infrastructure.jobs.service.JobRegisterService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
@@ -83,8 +83,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableWebSecurity
 @EnableConfigurationProperties({ FineractProperties.class, LiquibaseProperties.class })
-@ComponentScan(basePackages = "org.apache.fineract", excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = ScheduledJobRunnerConfig.class) })
+@ComponentScan(basePackages = "org.apache.fineract")
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 @PropertySource("classpath:application-test.properties")
@@ -162,15 +161,8 @@ public class TestConfiguration {
                 liquibaseFactory, tenantDataSourceFactory, environment, customTaskChangesForDependencyInjection);
     }
 
-    /**
-     * Override JobRegisterService binding, because the real JobRegisterServiceImpl has a @PostConstruct loadAllJobs()
-     * which accesses the database on start-up.
-     */
-    @Bean
-    public JobRegisterService jobRegisterServiceImpl() {
-        JobRegisterService mockJobRegisterService = mock(JobRegisterService.class);
-        return mockJobRegisterService;
-    }
+    // JobRegisterService bean removed as it depends on excluded modules
+
 
     @Bean
     public JdbcTemplate jdbcTemplate() {

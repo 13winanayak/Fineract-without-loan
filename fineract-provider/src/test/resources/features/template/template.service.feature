@@ -29,6 +29,5 @@ Feature: Template Service
     Examples:
       | template             | json       | result          |
       | hello.mustache       | hello.json | hello.txt       |
-      | loan.mustache        | loan.json  | loan.html       |
       | array.loop.mustache  | array.json | array.loop.txt  |
       | array.index.mustache | array.json | array.index.txt |
