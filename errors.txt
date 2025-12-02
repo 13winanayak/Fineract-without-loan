@@ -1,0 +1,682 @@
+﻿> Task :buildSrc:extractPluginRequests UP-TO-DATE
+> Task :buildSrc:generatePluginAdapters UP-TO-DATE
+> Task :buildSrc:compileJava UP-TO-DATE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:compileGroovyPlugins UP-TO-DATE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Configure project :
+matching ref: COMMIT - 581358c9103c9d6e1130e0d831cb1e6d0701b823
+  ref configuration: COMMIT - pattern: null
+    version: ${describe.tag.version.major}.${describe.tag.version.minor.next}.0-SNAPSHOT
+    describeTagPattern: .*(\d+\.\d+\.\d+).*
+    describeTagFirstParent: false
+
+project version: 0.1.0-SNAPSHOT
+
+> Task :spotlessInternalRegisterDependencies UP-TO-DATE
+> Task :fineract-tax:processResources UP-TO-DATE
+> Task :fineract-core:processResources UP-TO-DATE
+> Task :fineract-accounting:processResources UP-TO-DATE
+> Task :fineract-charge:processResources UP-TO-DATE
+> Task :fineract-cob:processResources UP-TO-DATE
+> Task :fineract-document:processResources UP-TO-DATE
+> Task :fineract-report:processResources UP-TO-DATE
+> Task :fineract-savings:processResources UP-TO-DATE
+> Task :fineract-avro-schemas:preprocessAvroSchemas UP-TO-DATE
+> Task :fineract-avro-schemas:spotlessJson UP-TO-DATE
+> Task :fineract-validation:compileJava UP-TO-DATE
+> Task :fineract-command:compileJava UP-TO-DATE
+> Task :fineract-validation:processResources UP-TO-DATE
+> Task :fineract-command:processResources UP-TO-DATE
+> Task :fineract-validation:classes UP-TO-DATE
+> Task :fineract-command:classes UP-TO-DATE
+> Task :fineract-command:jar UP-TO-DATE
+> Task :fineract-validation:jar UP-TO-DATE
+> Task :fineract-avro-schemas:spotlessJsonApply UP-TO-DATE
+> Task :fineract-avro-schemas:buildJavaSdk UP-TO-DATE
+> Task :fineract-avro-schemas:compileJava UP-TO-DATE
+> Task :fineract-avro-schemas:processResources UP-TO-DATE
+> Task :fineract-avro-schemas:classes UP-TO-DATE
+> Task :fineract-avro-schemas:jar UP-TO-DATE
+> Task :fineract-core:compileJava UP-TO-DATE
+> Task :fineract-core:classes UP-TO-DATE
+> Task :fineract-core:jar UP-TO-DATE
+> Task :fineract-cob:compileJava UP-TO-DATE
+> Task :fineract-cob:classes UP-TO-DATE
+> Task :fineract-report:compileJava UP-TO-DATE
+> Task :fineract-report:classes UP-TO-DATE
+> Task :fineract-cob:jar UP-TO-DATE
+> Task :fineract-report:jar UP-TO-DATE
+> Task :fineract-tax:compileJava UP-TO-DATE
+> Task :fineract-tax:classes UP-TO-DATE
+> Task :fineract-tax:jar UP-TO-DATE
+> Task :fineract-document:compileJava UP-TO-DATE
+> Task :fineract-document:classes UP-TO-DATE
+> Task :fineract-charge:compileJava UP-TO-DATE
+> Task :fineract-charge:classes UP-TO-DATE
+> Task :fineract-charge:jar UP-TO-DATE
+> Task :fineract-document:jar UP-TO-DATE
+> Task :fineract-accounting:compileJava UP-TO-DATE
+> Task :fineract-accounting:classes UP-TO-DATE
+> Task :fineract-accounting:jar UP-TO-DATE
+> Task :fineract-savings:compileJava UP-TO-DATE
+> Task :fineract-savings:classes UP-TO-DATE
+> Task :fineract-savings:jar UP-TO-DATE
+
+> Task :fineract-provider:compileJava
+./gradlew : D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\ja
+va\org\apache\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: 
+[removal] AntPathRequestMatcher in org.springframework.security.web.util.matcher has 
+been deprecated and marked for removal
+At line:1 char:1
++ ./gradlew :fineract-provider:compileJava 2>&1 | Out-File -FilePath er ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\program_data...ked for removal:String)  
+   [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                           ^
+warning: No processor claimed any of these annotations: /org.springframework.context.ann
+otation.Primary,/io.swagger.v3.oas.annotations.Parameter,/org.springframework.core.annot
+ation.Order,/org.mapstruct.Mapper,/jakarta.validation.constraints.NotNull,/io.swagger.v3
+.oas.annotations.responses.ApiResponses,/org.springframework.boot.context.properties.Con
+figurationProperties,/jakarta.persistence.Entity,/retrofit2.http.Body,/org.springframewo
+rk.context.annotation.Scope,/org.springframework.beans.factory.annotation.Value,/org.spr
+ingframework.stereotype.Component,/org.springframework.boot.context.properties.EnableCon
+figurationProperties,/org.springframework.cache.annotation.CachePut,/org.springframework
+.transaction.annotation.Transactional,/io.swagger.v3.oas.annotations.media.Schema,/retro
+fit2.http.FormUrlEncoded,/org.springframework.web.bind.annotation.GetMapping,/org.spring
+framework.context.annotation.Bean,/jakarta.persistence.Column,/org.springframework.trans
+action.annotation.EnableTransactionManagement,/org.springframework.context.annotation.Im
+port,/jakarta.persistence.JoinColumn,/jakarta.persistence.Enumerated,/org.springframewor
+k.stereotype.Controller,/org.springframework.boot.autoconfigure.condition.ConditionalOnM
+issingBean,/com.fasterxml.jackson.annotation.JsonIgnore,/jakarta.persistence.Converter,/
+com.google.gson.annotations.SerializedName,/org.springframework.context.annotation.Depen
+dsOn,/jakarta.persistence.OrderBy,/org.springframework.context.annotation.Conditional,/o
+rg.springframework.boot.autoconfigure.condition.ConditionalOnProperty,/jakarta.persisten
+ce.Embeddable,/com.fasterxml.jackson.annotation.JsonProperty,/jakarta.ws.rs.Path,/retrof
+it2.http.Header,/jakarta.ws.rs.PUT,/jakarta.ws.rs.ext.Provider,/org.springframework.mess
+aging.handler.annotation.Payload,/org.springframework.security.config.annotation.web.con
+figuration.EnableWebSecurity,/io.swagger.v3.oas.annotations.parameters.RequestBody,/org.
+springframework.scheduling.annotation.EnableAsync,/org.springframework.lang.NonNull,/org
+.springframework.security.config.annotation.method.configuration.EnableMethodSecurity,/o
+rg.springframework.boot.autoconfigure.condition.ConditionalOnBean,/org.springframework.b
+eans.factory.annotation.Autowired,/jakarta.ws.rs.DELETE,/jakarta.persistence.EmbeddedId,
+/org.springframework.data.jpa.repository.config.EnableJpaRepositories,/jakarta.ws.rs.Que
+ryParam,/jakarta.ws.rs.GET,/org.springframework.data.jpa.repository.Query,/jakarta.ws.rs
+.ApplicationPath,/io.swagger.v3.oas.annotations.tags.Tag,/org.springframework.batch.inte
+gration.config.annotation.EnableBatchIntegration,/jakarta.ws.rs.DefaultValue,/jakarta.pe
+rsistence.JoinTable,/org.springframework.kafka.annotation.KafkaListener,/org.springframe
+work.beans.factory.annotation.Qualifier,/org.apache.fineract.commands.annotation.Command
+Type,/org.springframework.stereotype.Service,/org.springframework.data.jpa.repository.co
+nfig.EnableJpaAuditing,/jakarta.ws.rs.core.Context,/jakarta.ws.rs.Consumes,/jakarta.ws.r
+s.PathParam,/edu.umd.cs.findbugs.annotations.SuppressFBWarnings,/org.springframework.con
+text.annotation.Configuration,/jakarta.annotation.PostConstruct,/org.springframework.cac
+he.annotation.Cacheable,/com.fasterxml.jackson.databind.annotation.JsonSerialize,/jakart
+a.persistence.OneToMany,/org.springframework.data.repository.query.Param,/org.springfram
+ework.security.core.Transient,/org.springframework.context.annotation.ComponentScan,/org
+.springframework.integration.annotation.IntegrationComponentScan,/jakarta.persistence.Ta
+ble,/org.springframework.stereotype.Repository,/jakarta.persistence.Embedded,/org.spring
+framework.cache.annotation.CacheEvict,/jakarta.persistence.ManyToOne,/retrofit2.http.POS
+T,/com.fasterxml.jackson.annotation.JsonInclude,/org.springframework.boot.autoconfigure.
+EnableAutoConfiguration,/jakarta.ws.rs.Produces,/org.springframework.context.annotation.
+Profile,/retrofit2.http.FieldMap,/io.swagger.v3.oas.annotations.Operation,/jakarta.ws.rs
+.BeanParam,/org.springframework.boot.autoconfigure.condition.ConditionalOnExpression,/ja
+karta.ws.rs.POST,/retrofit2.http.GET
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: [removal] 
+AntPathRequestMatcher in org.springframework.security.web.util.matcher has been 
+deprecated and marked for removal
+import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                           ^
+warning: No processor claimed any of these annotations: java.compiler/javax.annotation.p
+rocessing.Generated,/org.springframework.beans.factory.annotation.Autowired,/org.springf
+ramework.stereotype.Component
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: [removal] 
+AntPathRequestMatcher in org.springframework.security.web.util.matcher has been 
+deprecated and marked for removal
+import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                           ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: [removal] 
+AntPathRequestMatcher in org.springframework.security.web.util.matcher has been 
+deprecated and marked for removal
+import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                           ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: [removal] 
+AntPathRequestMatcher in org.springframework.security.web.util.matcher has been 
+deprecated and marked for removal
+import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                           ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\service\ExternalServicesPropertiesReadPlatformSe
+rvice.java:22: error: package org.apache.fineract.infrastructure.campaigns.sms.data 
+does not exist
+import 
+org.apache.fineract.infrastructure.campaigns.sms.data.MessageGatewayConfigurationData;
+                                                            ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\service\ExternalServicesPropertiesReadPlatformSe
+rvice.java:34: error: cannot find symbol
+    MessageGatewayConfigurationData getSMSGateway();
+    ^
+  symbol:   class MessageGatewayConfigurationData
+  location: interface ExternalServicesPropertiesReadPlatformService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\domain\ConfigurationDomainServiceJpa.java:33: 
+error: cannot find symbol
+import org.apache.fineract.useradministration.domain.PermissionRepository;
+                                                    ^
+  symbol:   class PermissionRepository
+  location: package org.apache.fineract.useradministration.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\domain\ConfigurationDomainServiceJpa.java:34: 
+error: cannot find symbol
+import org.apache.fineract.useradministration.exception.PermissionNotFoundException;
+                                                       ^
+  symbol:   class PermissionNotFoundException
+  location: package org.apache.fineract.useradministration.exception
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\domain\ConfigurationDomainServiceJpa.java:43: 
+error: cannot find symbol
+    private final PermissionRepository permissionRepository;
+                  ^
+  symbol:   class PermissionRepository
+  location: class ConfigurationDomainServiceJpa
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\domain\ConfigurationDomainServiceJpa.java:40: 
+error: cannot find symbol
+@RequiredArgsConstructor
+^
+  symbol:   class PermissionRepository
+  location: class ConfigurationDomainServiceJpa
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: [removal] 
+AntPathRequestMatcher in org.springframework.security.web.util.matcher has been 
+deprecated and marked for removal
+import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                           ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:43: error: package 
+org.apache.fineract.infrastructure.jobs.filter does not exist
+import org.apache.fineract.infrastructure.jobs.filter.LoanCOBApiFilter;
+                                                     ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:44: error: package 
+org.apache.fineract.infrastructure.jobs.filter does not exist
+import org.apache.fineract.infrastructure.jobs.filter.LoanCOBFilterHelper;
+                                                     ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:46: error: package 
+org.apache.fineract.infrastructure.security.filter does not exist
+import 
+org.apache.fineract.infrastructure.security.filter.TenantAwareBasicAuthenticationFilter;
+                                                         ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:47: error: package 
+org.apache.fineract.infrastructure.security.filter does not exist
+import org.apache.fineract.infrastructure.security.filter.TwoFactorAuthenticationFilter;
+                                                         ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:51: error: package 
+org.apache.fineract.notification.service does not exist
+import org.apache.fineract.notification.service.UserNotificationService;
+                                               ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:103: error: cannot find symbol
+    private UserNotificationService userNotificationService;
+            ^
+  symbol:   class UserNotificationService
+  location: class SecurityConfig
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:114: error: cannot find symbol
+    private LoanCOBFilterHelper loanCOBFilterHelper;
+            ^
+  symbol:   class LoanCOBFilterHelper
+  location: class SecurityConfig
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:199: error: cannot find symbol
+    public LoanCOBApiFilter loanCOBApiFilter() {
+           ^
+  symbol:   class LoanCOBApiFilter
+  location: class SecurityConfig
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:203: error: cannot find symbol
+    public TwoFactorAuthenticationFilter twoFactorAuthenticationFilter() {
+           ^
+  symbol:   class TwoFactorAuthenticationFilter
+  location: class SecurityConfig
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\config\SecurityConfig.java:224: error: cannot find symbol
+    public TenantAwareBasicAuthenticationFilter tenantAwareBasicAuthenticationFilter() 
+throws Exception {
+           ^
+  symbol:   class TenantAwareBasicAuthenticationFilter
+  location: class SecurityConfig
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\service\AbandonedConnectionCleanupShutdownListener.java:2
+4: error: cannot find symbol
+import org.apache.fineract.infrastructure.jobs.service.JobRegisterServiceImpl;
+                                                      ^
+  symbol:   class JobRegisterServiceImpl
+  location: package org.apache.fineract.infrastructure.jobs.service
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\entityaccess\service\FineractEntityAccessWriteServiceImpl.java
+:33: error: cannot find symbol
+import org.apache.fineract.infrastructure.entityaccess.data.FineractEntityDataValidator;
+                                                           ^
+  symbol:   class FineractEntityDataValidator
+  location: package org.apache.fineract.infrastructure.entityaccess.data
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\entityaccess\service\FineractEntityAccessWriteServiceImpl.java
+:58: error: cannot find symbol
+    private final FineractEntityDataValidator fromApiJsonDeserializer;
+                  ^
+  symbol:   class FineractEntityDataValidator
+  location: class FineractEntityAccessWriteServiceImpl
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\entityaccess\service\FineractEntityAccessWriteServiceImpl.java
+:65: error: cannot find symbol
+            FineractEntityDataValidator fromApiJsonDeserializer) {
+            ^
+  symbol:   class FineractEntityDataValidator
+  location: class FineractEntityAccessWriteServiceImpl
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\FixedDepositAccountBusinessEvent
+.java:22: error: cannot find symbol
+import org.apache.fineract.portfolio.savings.domain.FixedDepositAccount;
+                                                   ^
+  symbol:   class FixedDepositAccount
+  location: package org.apache.fineract.portfolio.savings.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\FixedDepositAccountBusinessEvent
+.java:24: error: cannot find symbol
+public abstract class FixedDepositAccountBusinessEvent extends 
+AbstractBusinessEvent<FixedDepositAccount> {
+                                                                                     ^
+  symbol: class FixedDepositAccount
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\FixedDepositAccountBusinessEvent
+.java:28: error: cannot find symbol
+    public FixedDepositAccountBusinessEvent(FixedDepositAccount value) {
+                                            ^
+  symbol:   class FixedDepositAccount
+  location: class FixedDepositAccountBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\FixedDepositAccountCreateBusines
+sEvent.java:21: error: cannot find symbol
+import org.apache.fineract.portfolio.savings.domain.FixedDepositAccount;
+                                                   ^
+  symbol:   class FixedDepositAccount
+  location: package org.apache.fineract.portfolio.savings.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\FixedDepositAccountCreateBusines
+sEvent.java:27: error: cannot find symbol
+    public FixedDepositAccountCreateBusinessEvent(FixedDepositAccount value) {
+                                                  ^
+  symbol:   class FixedDepositAccount
+  location: class FixedDepositAccountCreateBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\RecurringDepositAccountBusinessE
+vent.java:22: error: cannot find symbol
+import org.apache.fineract.portfolio.savings.domain.RecurringDepositAccount;
+                                                   ^
+  symbol:   class RecurringDepositAccount
+  location: package org.apache.fineract.portfolio.savings.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\RecurringDepositAccountBusinessE
+vent.java:24: error: cannot find symbol
+public abstract class RecurringDepositAccountBusinessEvent extends 
+AbstractBusinessEvent<RecurringDepositAccount> {
+                                                                                        
+ ^
+  symbol: class RecurringDepositAccount
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\RecurringDepositAccountBusinessE
+vent.java:28: error: cannot find symbol
+    public RecurringDepositAccountBusinessEvent(RecurringDepositAccount value) {
+                                                ^
+  symbol:   class RecurringDepositAccount
+  location: class RecurringDepositAccountBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\RecurringDepositAccountCreateBus
+inessEvent.java:21: error: cannot find symbol
+import org.apache.fineract.portfolio.savings.domain.RecurringDepositAccount;
+                                                   ^
+  symbol:   class RecurringDepositAccount
+  location: package org.apache.fineract.portfolio.savings.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\deposit\RecurringDepositAccountCreateBus
+inessEvent.java:27: error: cannot find symbol
+    public RecurringDepositAccountCreateBusinessEvent(RecurringDepositAccount value) {
+                                                      ^
+  symbol:   class RecurringDepositAccount
+  location: class RecurringDepositAccountCreateBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountApproveBusinessEvent.j
+ava:21: error: package org.apache.fineract.portfolio.shareaccounts.domain does not exist
+import org.apache.fineract.portfolio.shareaccounts.domain.ShareAccount;
+                                                         ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountBusinessEvent.java:22:
+ error: package org.apache.fineract.portfolio.shareaccounts.domain does not exist
+import org.apache.fineract.portfolio.shareaccounts.domain.ShareAccount;
+                                                         ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountBusinessEvent.java:24:
+ error: cannot find symbol
+public abstract class ShareAccountBusinessEvent extends 
+AbstractBusinessEvent<ShareAccount> {
+                                                                              ^
+  symbol: class ShareAccount
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountApproveBusinessEvent.j
+ava:27: error: cannot find symbol
+    public ShareAccountApproveBusinessEvent(ShareAccount value) {
+                                            ^
+  symbol:   class ShareAccount
+  location: class ShareAccountApproveBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountBusinessEvent.java:28:
+ error: cannot find symbol
+    public ShareAccountBusinessEvent(ShareAccount value) {
+                                     ^
+  symbol:   class ShareAccount
+  location: class ShareAccountBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountCreateBusinessEvent.ja
+va:21: error: package org.apache.fineract.portfolio.shareaccounts.domain does not exist
+import org.apache.fineract.portfolio.shareaccounts.domain.ShareAccount;
+                                                         ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\event\business\domain\share\ShareAccountCreateBusinessEvent.ja
+va:27: error: cannot find symbol
+    public ShareAccountCreateBusinessEvent(ShareAccount value) {
+                                           ^
+  symbol:   class ShareAccount
+  location: class ShareAccountCreateBusinessEvent
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:36: error: package 
+org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessage;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:37: error: package 
+org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessageRepository;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:38: error: package 
+org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessageStatusType;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:39: error: package 
+org.apache.fineract.portfolio.self.device.domain does not exist
+import org.apache.fineract.portfolio.self.device.domain.DeviceRegistration;
+                                                       ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:40: error: package 
+org.apache.fineract.portfolio.self.device.domain does not exist
+import 
+org.apache.fineract.portfolio.self.device.domain.DeviceRegistrationRepositoryWrapper;
+                                                       ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:47: error: cannot 
+find symbol
+    private final DeviceRegistrationRepositoryWrapper 
+deviceRegistrationRepositoryWrapper;
+                  ^
+  symbol:   class DeviceRegistrationRepositoryWrapper
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:48: error: cannot 
+find symbol
+    private final SmsMessageRepository smsMessageRepository;
+                  ^
+  symbol:   class SmsMessageRepository
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:51: error: cannot 
+find symbol
+    public void sendNotification(List<SmsMessage> smsMessages) {
+                                      ^
+  symbol:   class SmsMessage
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:58: error: cannot 
+find symbol
+    public Map<Long, List<SmsMessage>> getNotificationListByClient(List<SmsMessage> 
+smsMessages) {
+                                                                        ^
+  symbol:   class SmsMessage
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:58: error: cannot 
+find symbol
+    public Map<Long, List<SmsMessage>> getNotificationListByClient(List<SmsMessage> 
+smsMessages) {
+                          ^
+  symbol:   class SmsMessage
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:75: error: cannot 
+find symbol
+    public void sendNotification(Long clientId, List<SmsMessage> smsList) {
+                                                     ^
+  symbol:   class SmsMessage
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\gcm\service\NotificationSenderService.java:44: error: cannot 
+find symbol
+@RequiredArgsConstructor
+^
+  symbol:   class DeviceRegistrationRepositoryWrapper
+  location: class NotificationSenderService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:37: error: 
+package org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessage;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:38: error: 
+package org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessageRepository;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:39: error: 
+package org.apache.fineract.infrastructure.sms.scheduler does not exist
+import org.apache.fineract.infrastructure.sms.scheduler.SmsMessageScheduledJobService;
+                                                       ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:41: error: 
+cannot find symbol
+import org.apache.fineract.portfolio.client.domain.ClientRepositoryWrapper;
+                                                  ^
+  symbol:   class ClientRepositoryWrapper
+  location: package org.apache.fineract.portfolio.client.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:52: error: 
+cannot find symbol
+    private final ClientRepositoryWrapper clientRepository;
+                  ^
+  symbol:   class ClientRepositoryWrapper
+  location: class MessageGatewayHookProcessor
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:56: error: 
+cannot find symbol
+    private final SmsMessageRepository smsMessageRepository;
+                  ^
+  symbol:   class SmsMessageRepository
+  location: class MessageGatewayHookProcessor
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:57: error: 
+cannot find symbol
+    private final SmsMessageScheduledJobService smsMessageScheduledJobService;
+                  ^
+  symbol:   class SmsMessageScheduledJobService
+  location: class MessageGatewayHookProcessor
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\MessageGatewayHookProcessor.java:49: error: 
+cannot find symbol
+@RequiredArgsConstructor
+^
+  symbol:   class ClientRepositoryWrapper
+  location: class MessageGatewayHookProcessor
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\TwilioHookProcessor.java:37: error: cannot 
+find symbol
+import org.apache.fineract.portfolio.client.domain.ClientRepositoryWrapper;
+                                                  ^
+  symbol:   class ClientRepositoryWrapper
+  location: package org.apache.fineract.portfolio.client.domain
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\TwilioHookProcessor.java:48: error: cannot 
+find symbol
+    private final ClientRepositoryWrapper clientRepositoryWrapper;
+                  ^
+  symbol:   class ClientRepositoryWrapper
+  location: class TwilioHookProcessor
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\hooks\processor\TwilioHookProcessor.java:43: error: cannot 
+find symbol
+@RequiredArgsConstructor
+^
+  symbol:   class ClientRepositoryWrapper
+  location: class TwilioHookProcessor
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\s3\AmazonS3Config.java:24: error: cannot find symbol
+import org.apache.fineract.infrastructure.dataqueries.service.ReadReportingService;
+                                                             ^
+  symbol:   class ReadReportingService
+  location: package org.apache.fineract.infrastructure.dataqueries.service
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\s3\AmazonS3Config.java:25: error: package 
+org.apache.fineract.infrastructure.dataqueries.service.export does not exist
+import org.apache.fineract.infrastructure.dataqueries.service.export.S3DatatableReportEx
+portServiceImpl;
+                                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\s3\AmazonS3Config.java:60: error: cannot find symbol
+    public S3DatatableReportExportServiceImpl 
+s3DatatableReportExportServiceImpl(ReadReportingService reportServiceImpl,
+                                                                                 ^
+  symbol:   class ReadReportingService
+  location: class AmazonS3Config
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\s3\AmazonS3Config.java:60: error: cannot find symbol
+    public S3DatatableReportExportServiceImpl 
+s3DatatableReportExportServiceImpl(ReadReportingService reportServiceImpl,
+           ^
+  symbol:   class S3DatatableReportExportServiceImpl
+  location: class AmazonS3Config
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\api\AuthenticationApiResource.java:48: error: 
+package org.apache.fineract.portfolio.client.service does not exist
+import org.apache.fineract.portfolio.client.service.ClientReadPlatformService;
+                                                   ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\api\AuthenticationApiResource.java:81: error: cannot 
+find symbol
+    private final ClientReadPlatformService clientReadPlatformService;
+                  ^
+  symbol:   class ClientReadPlatformService
+  location: class AuthenticationApiResource
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\api\AuthenticationApiResource.java:65: error: cannot 
+find symbol
+@RequiredArgsConstructor
+^
+  symbol:   class ClientReadPlatformService
+  location: class AuthenticationApiResource
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:37: error: package 
+org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessage;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:38: error: package 
+org.apache.fineract.infrastructure.sms.domain does not exist
+import org.apache.fineract.infrastructure.sms.domain.SmsMessageRepository;
+                                                    ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:39: error: package 
+org.apache.fineract.infrastructure.sms.scheduler does not exist
+import org.apache.fineract.infrastructure.sms.scheduler.SmsMessageScheduledJobService;
+                                                       ^
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:54: error: cannot 
+find symbol
+    private final SmsMessageScheduledJobService smsMessageScheduledJobService;
+                  ^
+  symbol:   class SmsMessageScheduledJobService
+  location: class TwoFactorServiceImpl
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:58: error: cannot 
+find symbol
+    private final SmsMessageRepository smsMessageRepository;
+                  ^
+  symbol:   class SmsMessageRepository
+  location: class TwoFactorServiceImpl
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:64: error: cannot 
+find symbol
+            SmsMessageScheduledJobService smsMessageScheduledJobService, 
+OTPRequestRepository otpRequestRepository,
+            ^
+  symbol:   class SmsMessageScheduledJobService
+  location: class TwoFactorServiceImpl
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\security\service\TwoFactorServiceImpl.java:65: error: cannot 
+find symbol
+            TFAccessTokenRepository tfAccessTokenRepository, SmsMessageRepository 
+smsMessageRepository,
+                                                             ^
+  symbol:   class SmsMessageRepository
+  location: class TwoFactorServiceImpl
+74 errors
+8 warnings
+
+> Task :fineract-provider:compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/program_data/Fineract/Fineract-without-loan/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':fineract-provider:compileJava'.
+> Compilation failed; see the compiler output below.
+  D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apa
+che\fineract\infrastructure\core\config\SecurityConfig.java:26: warning: [removal] 
+AntPathRequestMatcher in org.springframework.security.web.util.matcher has been 
+deprecated and marked for removal
+  import static 
+org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+                                                             ^
+  74 errors
+  8 warnings
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 40s
+47 actionable tasks: 1 executed, 46 up-to-date

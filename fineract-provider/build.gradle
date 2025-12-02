@@ -55,6 +55,8 @@ tasks.register('prepareInputYaml') {
     }
 }
 
+def skipOpenApi = project.findProperty('skipOpenApi') == 'true'
+
 resolve {
     logging.captureStandardOutput LogLevel.INFO
     outputFileName = 'fineract'
@@ -66,6 +68,10 @@ resolve {
     openApiFile = file("${buildDir}/tmp/swagger/fineract-input.yaml")
     sortOutput = true
     dependsOn(prepareInputYaml)
+}
+
+if (skipOpenApi) {
+    tasks.named('resolve').configure { enabled = false }
 }
 
 configurations {
@@ -238,7 +244,7 @@ bootJar {
         attributes('Main-Class': 'org.springframework.boot.loader.launch.PropertiesLauncher', 'Implementation-Title': 'Apache Fineract', 'Implementation-Version': project.version)
     }
     archiveClassifier = ''
-    dependsOn resolve
+    if (!skipOpenApi) { dependsOn resolve }
 }
 
 jib {
@@ -315,8 +321,13 @@ cucumber {
     ]
 }
 
-tasks.jib.dependsOn(bootJar, resolve)
-tasks.jibDockerBuild.dependsOn(bootJar, resolve)
+if (!skipOpenApi) {
+    tasks.jib.dependsOn(bootJar, resolve)
+    tasks.jibDockerBuild.dependsOn(bootJar, resolve)
+} else {
+    tasks.jib.dependsOn(bootJar)
+    tasks.jibDockerBuild.dependsOn(bootJar)
+}
 
 // Configuration for git properties gradle plugin
 // https://github.com/n0mer/gradle-git-properties
@@ -331,18 +342,17 @@ gitProperties {
 generateGitProperties.outputs.upToDateWhen { false }
 
 // NOTE: Gradle suggested these dependencies
-jar.dependsOn resolve
-test.dependsOn resolve
-checkstyleMain.dependsOn resolve
-checkstyleTest.dependsOn resolve
-rat.dependsOn prepareInputYaml
-spotbugsTest.dependsOn resolve
-compileTestJava.dependsOn ':fineract-client:processResources', ':fineract-avro-schemas:processResources'
-resolveMainClassName.dependsOn resolve
-
-javadoc {
-    dependsOn resolve
+if (!skipOpenApi) {
+    jar.dependsOn resolve
+    test.dependsOn resolve
+    checkstyleMain.dependsOn resolve
+    checkstyleTest.dependsOn resolve
+    spotbugsTest.dependsOn resolve
+    resolveMainClassName.dependsOn resolve
+    javadoc.dependsOn resolve
 }
+rat.dependsOn prepareInputYaml
+compileTestJava.dependsOn ':fineract-client:processResources', ':fineract-avro-schemas:processResources'
 
 // Disable provider tests to focus on building the main artifact without loan code
 tasks.withType(Test).configureEach { enabled = false }
@@ -387,29 +397,208 @@ tasks.register('devRun', org.springframework.boot.gradle.tasks.run.BootRun) {
 sourceSets {
     main {
         java {
+            // Core loan-related packages
             exclude '**/portfolio/loanaccount/**'
             exclude '**/portfolio/loanproduct/**'
             exclude '**/portfolio/self/**'
             exclude '**/portfolio/account/**'
             exclude '**/portfolio/collateralmanagement/**'
+            exclude '**/portfolio/collateral/**'
             exclude '**/accounting/**'
             exclude '**/portfolio/rate/**'
             exclude '**/portfolio/search/**'
-            exclude '**/portfolio/shareaccounts/starter/**'
-            exclude '**/portfolio/shareaccounts/start/**'
-            exclude '**/portfolio/shareaccounts/service/**'
             exclude '**/portfolio/shareaccounts/**'
             exclude '**/portfolio/savings/service/**'
+            exclude '**/portfolio/savings/api/**'
+            exclude '**/portfolio/savings/domain/**'
+            exclude '**/portfolio/savings/jobs/**'
             exclude '**/portfolio/shareproducts/**'
-            exclude '**/infrastructure/dataqueries/api/**'
-            // Keep organisation/teller; exclude provisioning (swagger nested classes issues)
+            exclude '**/infrastructure/dataqueries/**'
+            
+            // Organisation - exclude all service/api/handler/starter packages
             exclude '**/organisation/provisioning/**'
-            exclude '**/organisation/teller/starter/**'
-            exclude '**/useradministration/service/**'
-            exclude '**/useradministration/starter/**'
-            exclude '**/useradministration/handler/**'
-            exclude '**/useradministration/api/**'
+            exclude '**/organisation/teller/**'
+            exclude '**/organisation/staff/service/**'
+            exclude '**/organisation/staff/api/**'
+            exclude '**/organisation/staff/handler/**'
+            exclude '**/organisation/staff/starter/**'
+            exclude '**/organisation/staff/data/StaffAccountSummaryCollectionData.java'
+            exclude '**/organisation/staff/serialization/**'
+            exclude '**/organisation/office/service/**'
+            exclude '**/organisation/office/api/**'
+            exclude '**/organisation/office/handler/**'
+            exclude '**/organisation/office/starter/**'
+            exclude '**/organisation/holiday/service/**'
+            exclude '**/organisation/holiday/api/**'
+            exclude '**/organisation/holiday/handler/**'
+            exclude '**/organisation/holiday/starter/**'
+            exclude '**/organisation/workingdays/service/**'
+            exclude '**/organisation/workingdays/api/**'
+            exclude '**/organisation/workingdays/handler/**'
+            exclude '**/organisation/workingdays/starter/**'
+            exclude '**/useradministration/**'
             exclude '**/portfolio/note/**'
+            
+            // Exclude all loan COB (Close of Business) related files
+            exclude '**/cob/**'
+            exclude '**/infrastructure/jobs/**'
+            exclude '**/infrastructure/creditbureau/**'
+            exclude '**/portfolio/accountdetails/**'
+            
+            // Exclude campaigns (email/SMS campaigns depend on loans)
+            exclude '**/infrastructure/campaigns/**'
+            
+            // Exclude SMS infrastructure (depends on campaigns and client/group)
+            exclude '**/infrastructure/sms/**'
+            
+            // Exclude notifications (depends on useradministration)
+            exclude '**/notification/**'
+            
+            // Exclude collection sheets (depend on loans)
+            exclude '**/portfolio/collectionsheet/**'
+            
+            // Exclude batch API (most commands depend on loans)
+            exclude '**/batch/**'
+            
+            // Exclude calendar (depends on loan entity types)
+            exclude '**/portfolio/calendar/**'
+            
+            // Exclude meeting (depends on calendar which depends on loans)
+            exclude '**/portfolio/meeting/**'
+            
+            // Exclude group operations (depends on loans)
+            exclude '**/portfolio/group/**'
+            
+            // Exclude client operations (depends on loans)
+            exclude '**/portfolio/client/**'
+            
+            // Exclude floating rates (used by loans)
+            exclude '**/portfolio/floatingrates/**'
+            
+            // Exclude fund (used by loans)
+            exclude '**/portfolio/fund/**'
+            
+            // Exclude charge operations (heavily depend on loans)
+            exclude '**/portfolio/charge/**'
+            
+            // Exclude PaymentType operations (used by loans)
+            exclude '**/portfolio/paymenttype/**'
+            
+            // Exclude tax operations (used by loans)
+            exclude '**/portfolio/tax/**'
+            
+            // Exclude transfer operations
+            exclude '**/portfolio/transfer/**'
+            
+            // Exclude common operations
+            exclude '**/portfolio/common/**'
+            
+            // Exclude address operations (depend on client)
+            exclude '**/portfolio/address/**'
+            
+            // Exclude portfolio accounts API (depends on shareaccounts)
+            exclude '**/portfolio/accounts/**'
+            
+            // Exclude business date/step operations (COB-related)
+            exclude '**/infrastructure/businessdate/**'
+            exclude '**/infrastructure/businessstep/**'
+            
+            // Exclude entire business event infrastructure (many depend on excluded domain models)
+            exclude '**/businessevent/**'
+            
+            // Exclude security config package (depends on loans and excluded filters)
+            exclude '**/infrastructure/security/config/**'
+            exclude '**/infrastructure/security/filter/**'
+            
+            // Exclude infrastructure core config (has dependencies on excluded modules)
+            exclude '**/infrastructure/core/config/SecurityConfig.java'
+            exclude '**/infrastructure/core/config/AuthorizationServerConfig.java'
+            
+            // Exclude infrastructure scheduler (depends on campaigns/SMS)
+            exclude '**/infrastructure/scheduler/**'
+            
+            // Exclude GCM/notification services (depend on notification module)
+            exclude '**/infrastructure/gcm/**'
+            
+            // Exclude infrastructure configuration services (depend on excluded modules)
+            exclude '**/infrastructure/configuration/service/ExternalServicesPropertiesReadPlatformService.java'
+            exclude '**/infrastructure/configuration/service/ExternalServicesPropertiesReadPlatformServiceImpl.java'
+            exclude '**/infrastructure/configuration/domain/ConfigurationDomainServiceJpa.java'
+            exclude '**/infrastructure/configuration/api/ExternalServicesConfigurationApiResource.java'
+            
+            // Exclude infrastructure core service dependencies
+            exclude '**/infrastructure/core/service/AbandonedConnectionCleanupShutdownListener.java'
+            exclude '**/infrastructure/core/service/GmailBackedPlatformEmailService.java'
+            
+            // Exclude entity access services (depend on excluded data validators)
+            exclude '**/infrastructure/entityaccess/service/FineractEntityAccessWriteServiceImpl.java'
+            
+            // Exclude business events for deposits and shares (depend on excluded domain models)
+            exclude '**/infrastructure/event/business/domain/deposit/**'
+            exclude '**/infrastructure/event/business/domain/share/**'
+            
+            // Exclude hooks processors (depend on SMS and client)
+            exclude '**/infrastructure/hooks/processor/MessageGatewayHookProcessor.java'
+            exclude '**/infrastructure/hooks/processor/TwilioHookProcessor.java'
+            exclude '**/infrastructure/hooks/processor/HookProcessorProvider.java'
+            exclude '**/infrastructure/hooks/listener/FineractHookListener.java'
+           
+            // Exclude S3 config (depends on dataqueries service)
+            exclude '**/infrastructure/s3/AmazonS3Config.java'
+            
+            // Exclude authentication API (depends on client service)
+            exclude '**/infrastructure/security/api/AuthenticationApiResource.java'
+            
+            // Exclude two-factor service (depends on SMS)
+            exclude '**/infrastructure/security/service/TwoFactorServiceImpl.java'
+            
+            // Exclude code operations (used by loans)
+            exclude '**/portfolio/code/**'
+            
+            // Exclude report operations (may depend on loan data)
+            exclude '**/infrastructure/report/**'
+            exclude '**/infrastructure/reportmailingjob/**'
+            
+            // Exclude document operations (used by various entities including loans)
+            exclude '**/infrastructure/documentmanagement/**'
+            
+            // Exclude delinquency (loan-specific)
+            exclude '**/portfolio/delinquency/**'
+            
+            // Exclude product mix (loan products)
+            exclude '**/portfolio/productmix/**'
+            
+            // Exclude fixed deposit (similar complexity to loans)
+            exclude '**/portfolio/fixeddeposit/**'
+            
+            // Exclude recurring deposit (similar complexity to loans)
+            exclude '**/portfolio/recurringdeposit/**'
+            
+            // Exclude interoperation (depends on account types including loans)
+            exclude '**/interoperation/**'
+            
+            // Exclude SPM (depends on client)
+            exclude '**/spm/**'
+            
+            // Exclude event mappers for shareaccounts
+            exclude '**/infrastructure/event/external/service/serialization/mapper/share/**'
+            
+            // Exclude business events for deposits (depend on fixeddeposit/recurringdeposit domain)
+            exclude '**/portfolio/savings/businessevent/**'
+            
+            // Exclude entire bulkimport infrastructure (depends on many excluded modules)
+            exclude '**/infrastructure/bulkimport/**'
+            
+            // Exclude external event serializers that depend on excluded modules
+            exclude '**/infrastructure/event/external/service/serialization/serializer/**'
+            
+            // Exclude organisation staff data files that depend on excluded modules
+            exclude '**/organisation/staff/data/**'
+            
+            // Exclude configuration services that depend on excluded modules
+            exclude '**/infrastructure/configuration/service/ExternalServicesPropertiesReadPlatformServiceImpl.java'
         }
     }
 }
+
+

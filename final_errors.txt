@@ -1,0 +1,243 @@
+﻿> Task :buildSrc:extractPluginRequests UP-TO-DATE
+> Task :buildSrc:generatePluginAdapters UP-TO-DATE
+> Task :buildSrc:compileJava UP-TO-DATE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:compileGroovyPlugins UP-TO-DATE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Configure project :
+matching ref: COMMIT - 581358c9103c9d6e1130e0d831cb1e6d0701b823
+  ref configuration: COMMIT - pattern: null
+    version: ${describe.tag.version.major}.${describe.tag.version.minor.next}.0-SNAPSHOT
+    describeTagPattern: .*(\d+\.\d+\.\d+).*
+    describeTagFirstParent: false
+
+project version: 0.1.0-SNAPSHOT
+
+> Task :fineract-core:processResources UP-TO-DATE
+> Task :fineract-charge:processResources UP-TO-DATE
+> Task :fineract-avro-schemas:preprocessAvroSchemas UP-TO-DATE
+> Task :fineract-cob:processResources UP-TO-DATE
+> Task :fineract-document:processResources UP-TO-DATE
+> Task :fineract-report:processResources UP-TO-DATE
+> Task :fineract-savings:processResources UP-TO-DATE
+> Task :fineract-avro-schemas:processResources UP-TO-DATE
+> Task :spotlessInternalRegisterDependencies UP-TO-DATE
+> Task :fineract-tax:processResources UP-TO-DATE
+> Task :fineract-accounting:processResources UP-TO-DATE
+> Task :fineract-avro-schemas:spotlessJson UP-TO-DATE
+> Task :fineract-validation:compileJava UP-TO-DATE
+> Task :fineract-command:compileJava UP-TO-DATE
+> Task :fineract-validation:processResources UP-TO-DATE
+> Task :fineract-validation:classes UP-TO-DATE
+> Task :fineract-command:processResources UP-TO-DATE
+> Task :fineract-command:classes UP-TO-DATE
+> Task :fineract-validation:jar UP-TO-DATE
+> Task :fineract-command:jar UP-TO-DATE
+> Task :fineract-avro-schemas:spotlessJsonApply UP-TO-DATE
+> Task :fineract-avro-schemas:buildJavaSdk UP-TO-DATE
+> Task :fineract-avro-schemas:compileJava UP-TO-DATE
+> Task :fineract-avro-schemas:classes UP-TO-DATE
+> Task :fineract-avro-schemas:jar UP-TO-DATE
+> Task :fineract-core:compileJava UP-TO-DATE
+> Task :fineract-core:classes UP-TO-DATE
+> Task :fineract-core:jar UP-TO-DATE
+> Task :fineract-tax:compileJava UP-TO-DATE
+> Task :fineract-tax:classes UP-TO-DATE
+> Task :fineract-report:compileJava UP-TO-DATE
+> Task :fineract-tax:jar UP-TO-DATE
+> Task :fineract-report:classes UP-TO-DATE
+> Task :fineract-cob:compileJava UP-TO-DATE
+> Task :fineract-cob:classes UP-TO-DATE
+> Task :fineract-report:jar UP-TO-DATE
+> Task :fineract-cob:jar UP-TO-DATE
+> Task :fineract-charge:compileJava UP-TO-DATE
+> Task :fineract-charge:classes UP-TO-DATE
+> Task :fineract-charge:jar UP-TO-DATE
+> Task :fineract-document:compileJava UP-TO-DATE
+> Task :fineract-document:classes UP-TO-DATE
+> Task :fineract-document:jar UP-TO-DATE
+> Task :fineract-accounting:compileJava UP-TO-DATE
+> Task :fineract-accounting:classes UP-TO-DATE
+> Task :fineract-accounting:jar UP-TO-DATE
+> Task :fineract-savings:compileJava UP-TO-DATE
+> Task :fineract-savings:classes UP-TO-DATE
+> Task :fineract-savings:jar UP-TO-DATE
+
+> Task :fineract-provider:compileJava
+./gradlew : warning: No processor claimed any of these annotations: /org.springframework
+.context.annotation.Primary,/io.swagger.v3.oas.annotations.Parameter,/org.springframewor
+k.core.annotation.Order,/org.mapstruct.Mapper,/jakarta.validation.constraints.NotNull,/i
+o.swagger.v3.oas.annotations.responses.ApiResponses,/org.springframework.boot.context.pr
+operties.ConfigurationProperties,/jakarta.persistence.Entity,/retrofit2.http.Body,/org.s
+pringframework.context.annotation.Scope,/org.springframework.beans.factory.annotation.Va
+lue,/org.springframework.stereotype.Component,/org.springframework.boot.context.properti
+es.EnableConfigurationProperties,/org.springframework.transaction.annotation.Transaction
+al,/io.swagger.v3.oas.annotations.media.Schema,/retrofit2.http.FormUrlEncoded,/org.sprin
+gframework.web.bind.annotation.GetMapping,/org.springframework.context.annotation.Bean,/
+jakarta.persistence.Column,/org.springframework.transaction.annotation.EnableTransaction
+Management,/org.springframework.context.annotation.Import,/jakarta.persistence.JoinColum
+n,/jakarta.persistence.Enumerated,/org.springframework.stereotype.Controller,/org.spring
+framework.boot.autoconfigure.condition.ConditionalOnMissingBean,/com.fasterxml.jackson.a
+nnotation.JsonIgnore,/jakarta.persistence.Converter,/com.google.gson.annotations.Seriali
+zedName,/org.springframework.context.annotation.DependsOn,/jakarta.persistence.OrderBy,/
+org.springframework.context.annotation.Conditional,/org.springframework.boot.autoconfigu
+re.condition.ConditionalOnProperty,/jakarta.persistence.Embeddable,/com.fasterxml.jackso
+n.annotation.JsonProperty,/jakarta.ws.rs.Path,/retrofit2.http.Header,/jakarta.ws.rs.PUT,
+/jakarta.ws.rs.ext.Provider,/org.springframework.messaging.handler.annotation.Payload,/o
+rg.springframework.security.config.annotation.web.configuration.EnableWebSecurity,/io.sw
+agger.v3.oas.annotations.parameters.RequestBody,/org.springframework.scheduling.annotati
+on.EnableAsync,/org.springframework.lang.NonNull,/org.springframework.beans.factory.anno
+tation.Autowired,/jakarta.ws.rs.DELETE,/jakarta.persistence.EmbeddedId,/org.springframew
+ork.data.jpa.repository.config.EnableJpaRepositories,/jakarta.ws.rs.QueryParam,/jakarta.
+ws.rs.GET,/org.springframework.data.jpa.repository.Query,/jakarta.ws.rs.ApplicationPath,
+/io.swagger.v3.oas.annotations.tags.Tag,/org.springframework.batch.integration.config.an
+notation.EnableBatchIntegration,/jakarta.ws.rs.DefaultValue,/jakarta.persistence.JoinTab
+le,/org.springframework.kafka.annotation.KafkaListener,/org.springframework.beans.factor
+y.annotation.Qualifier,/org.apache.fineract.commands.annotation.CommandType,/org.springf
+ramework.stereotype.Service,/org.springframework.data.jpa.repository.config.EnableJpaAud
+iting,/jakarta.ws.rs.core.Context,/jakarta.ws.rs.Consumes,/jakarta.ws.rs.PathParam,/edu.
+umd.cs.findbugs.annotations.SuppressFBWarnings,/org.springframework.context.annotation.C
+onfiguration,/jakarta.annotation.PostConstruct,/org.springframework.cache.annotation.Cac
+heable,/com.fasterxml.jackson.databind.annotation.JsonSerialize,/jakarta.persistence.One
+ToMany,/org.springframework.data.repository.query.Param,/org.springframework.security.co
+re.Transient,/org.springframework.context.annotation.ComponentScan,/org.springframework.
+integration.annotation.IntegrationComponentScan,/jakarta.persistence.Table,/org.springfr
+amework.stereotype.Repository,/jakarta.persistence.Embedded,/org.springframework.cache.a
+nnotation.CacheEvict,/jakarta.persistence.ManyToOne,/retrofit2.http.POST,/com.fasterxml.
+jackson.annotation.JsonInclude,/org.springframework.boot.autoconfigure.EnableAutoConfigu
+ration,/jakarta.ws.rs.Produces,/org.springframework.context.annotation.Profile,/retrofit
+2.http.FieldMap,/io.swagger.v3.oas.annotations.Operation,/jakarta.ws.rs.BeanParam,/org.s
+pringframework.boot.autoconfigure.condition.ConditionalOnExpression,/jakarta.ws.rs.POST,
+/retrofit2.http.GET
+At line:1 char:1
++ ./gradlew :fineract-provider:compileJava 2>&1 | Out-File -FilePath fi ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: No pro...rofit2.http.GET:String)  
+   [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: No processor claimed any of these annotations: java.compiler/javax.annotation.p
+rocessing.Generated,/org.springframework.beans.factory.annotation.Autowired,/org.springf
+ramework.stereotype.Component
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\api\ExternalServicesConfigurationApiResource.jav
+a:44: error: cannot find symbol
+import org.apache.fineract.infrastructure.configuration.service.ExternalServicesProperti
+esReadPlatformService;
+                                                               ^
+  symbol:   class ExternalServicesPropertiesReadPlatformService
+  location: package org.apache.fineract.infrastructure.configuration.service
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\api\ExternalServicesConfigurationApiResource.jav
+a:61: error: cannot find symbol
+    private final ExternalServicesPropertiesReadPlatformService 
+externalServicePropertiesReadPlatformService;
+                  ^
+  symbol:   class ExternalServicesPropertiesReadPlatformService
+  location: class ExternalServicesConfigurationApiResource
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\configuration\api\ExternalServicesConfigurationApiResource.jav
+a:57: error: cannot find symbol
+@RequiredArgsConstructor
+^
+  symbol:   class ExternalServicesPropertiesReadPlatformService
+  location: class ExternalServicesConfigurationApiResource
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\service\GmailBackedPlatformEmailService.java:23: error: 
+cannot find symbol
+import org.apache.fineract.infrastructure.configuration.service.ExternalServicesProperti
+esReadPlatformService;
+                                                               ^
+  symbol:   class ExternalServicesPropertiesReadPlatformService
+  location: package org.apache.fineract.infrastructure.configuration.service
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\service\GmailBackedPlatformEmailService.java:33: error: 
+cannot find symbol
+    private final ExternalServicesPropertiesReadPlatformService 
+externalServicesReadPlatformService;
+                  ^
+  symbol:   class ExternalServicesPropertiesReadPlatformService
+  location: class GmailBackedPlatformEmailService
+D:\program_data\Fineract\Fineract-without-loan\fineract-provider\src\main\java\org\apach
+e\fineract\infrastructure\core\service\GmailBackedPlatformEmailService.java:36: error: 
+cannot find symbol
+    public GmailBackedPlatformEmailService(final 
+ExternalServicesPropertiesReadPlatformService externalServicesReadPlatformService) {
+                                                 ^
+  symbol:   class ExternalServicesPropertiesReadPlatformService
+  location: class GmailBackedPlatformEmailService
+6 errors
+2 warnings
+
+> Task :fineract-provider:compileJava FAILED
+
+[Incubating] Problems report is available at: file:///D:/program_data/Fineract/Fineract-without-loan/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':fineract-provider:compileJava'.
+> Compilation failed; see the compiler output below.
+  warning: No processor claimed any of these annotations: /org.springframework.context.a
+nnotation.Primary,/io.swagger.v3.oas.annotations.Parameter,/org.springframework.core.ann
+otation.Order,/org.mapstruct.Mapper,/jakarta.validation.constraints.NotNull,/io.swagger.
+v3.oas.annotations.responses.ApiResponses,/org.springframework.boot.context.properties.C
+onfigurationProperties,/jakarta.persistence.Entity,/retrofit2.http.Body,/org.springframe
+work.context.annotation.Scope,/org.springframework.beans.factory.annotation.Value,/org.s
+pringframework.stereotype.Component,/org.springframework.boot.context.properties.EnableC
+onfigurationProperties,/org.springframework.transaction.annotation.Transactional,/io.swa
+gger.v3.oas.annotations.media.Schema,/retrofit2.http.FormUrlEncoded,/org.springframework
+.web.bind.annotation.GetMapping,/org.springframework.context.annotation.Bean,/jakarta.pe
+rsistence.Column,/org.springframework.transaction.annotation.EnableTransactionManagement
+,/org.springframework.context.annotation.Import,/jakarta.persistence.JoinColumn,/jakarta
+.persistence.Enumerated,/org.springframework.stereotype.Controller,/org.springframework.
+boot.autoconfigure.condition.ConditionalOnMissingBean,/com.fasterxml.jackson.annotation.
+JsonIgnore,/jakarta.persistence.Converter,/com.google.gson.annotations.SerializedName,/o
+rg.springframework.context.annotation.DependsOn,/jakarta.persistence.OrderBy,/org.spring
+framework.context.annotation.Conditional,/org.springframework.boot.autoconfigure.conditi
+on.ConditionalOnProperty,/jakarta.persistence.Embeddable,/com.fasterxml.jackson.annotati
+on.JsonProperty,/jakarta.ws.rs.Path,/retrofit2.http.Header,/jakarta.ws.rs.PUT,/jakarta.w
+s.rs.ext.Provider,/org.springframework.messaging.handler.annotation.Payload,/org.springf
+ramework.security.config.annotation.web.configuration.EnableWebSecurity,/io.swagger.v3.o
+as.annotations.parameters.RequestBody,/org.springframework.scheduling.annotation.EnableA
+sync,/org.springframework.lang.NonNull,/org.springframework.beans.factory.annotation.Aut
+owired,/jakarta.ws.rs.DELETE,/jakarta.persistence.EmbeddedId,/org.springframework.data.j
+pa.repository.config.EnableJpaRepositories,/jakarta.ws.rs.QueryParam,/jakarta.ws.rs.GET,
+/org.springframework.data.jpa.repository.Query,/jakarta.ws.rs.ApplicationPath,/io.swagge
+r.v3.oas.annotations.tags.Tag,/org.springframework.batch.integration.config.annotation.E
+nableBatchIntegration,/jakarta.ws.rs.DefaultValue,/jakarta.persistence.JoinTable,/org.sp
+ringframework.kafka.annotation.KafkaListener,/org.springframework.beans.factory.annotati
+on.Qualifier,/org.apache.fineract.commands.annotation.CommandType,/org.springframework.s
+tereotype.Service,/org.springframework.data.jpa.repository.config.EnableJpaAuditing,/jak
+arta.ws.rs.core.Context,/jakarta.ws.rs.Consumes,/jakarta.ws.rs.PathParam,/edu.umd.cs.fin
+dbugs.annotations.SuppressFBWarnings,/org.springframework.context.annotation.Configurati
+on,/jakarta.annotation.PostConstruct,/org.springframework.cache.annotation.Cacheable,/co
+m.fasterxml.jackson.databind.annotation.JsonSerialize,/jakarta.persistence.OneToMany,/or
+g.springframework.data.repository.query.Param,/org.springframework.security.core.Transie
+nt,/org.springframework.context.annotation.ComponentScan,/org.springframework.integratio
+n.annotation.IntegrationComponentScan,/jakarta.persistence.Table,/org.springframework.st
+ereotype.Repository,/jakarta.persistence.Embedded,/org.springframework.cache.annotation.
+CacheEvict,/jakarta.persistence.ManyToOne,/retrofit2.http.POST,/com.fasterxml.jackson.an
+notation.JsonInclude,/org.springframework.boot.autoconfigure.EnableAutoConfiguration,/ja
+karta.ws.rs.Produces,/org.springframework.context.annotation.Profile,/retrofit2.http.Fie
+ldMap,/io.swagger.v3.oas.annotations.Operation,/jakarta.ws.rs.BeanParam,/org.springframe
+work.boot.autoconfigure.condition.ConditionalOnExpression,/jakarta.ws.rs.POST,/retrofit2
+.http.GET
+  6 errors
+  2 warnings
+
+* Try:
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 49s
+47 actionable tasks: 1 executed, 46 up-to-date
