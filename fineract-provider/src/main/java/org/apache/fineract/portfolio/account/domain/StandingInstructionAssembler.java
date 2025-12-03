@@ -78,16 +78,16 @@ public class StandingInstructionAssembler {
         accountTransferDetails.updateAccountTransferStandingInstruction(accountTransferStandingInstruction);
     }
 
-    public AccountTransferDetails assembleSavingsToLoanTransfer(final JsonCommand command) {
-        final AccountTransferDetails accountTransferDetails = this.accountTransferDetailAssembler.assembleSavingsToLoanTransfer(command);
-        assembleStandingInstruction(command, accountTransferDetails);
-        return accountTransferDetails;
-    }
+    // public AccountTransferDetails assembleSavingsToLoanTransfer(final JsonCommand command) {
+    //     final AccountTransferDetails accountTransferDetails = this.accountTransferDetailAssembler.assembleSavingsToLoanTransfer(command);
+    //     assembleStandingInstruction(command, accountTransferDetails);
+    //     return accountTransferDetails;
+    // }
 
-    public AccountTransferDetails assembleLoanToSavingsTransfer(final JsonCommand command) {
-        final AccountTransferDetails accountTransferDetails = this.accountTransferDetailAssembler.assembleLoanToSavingsTransfer(command);
-        assembleStandingInstruction(command, accountTransferDetails);
-        return accountTransferDetails;
-    }
+    // public AccountTransferDetails assembleLoanToSavingsTransfer(final JsonCommand command) {
+    //     final AccountTransferDetails accountTransferDetails = this.accountTransferDetailAssembler.assembleLoanToSavingsTransfer(command);
+    //     assembleStandingInstruction(command, accountTransferDetails);
+    //     return accountTransferDetails;
+    // }
 
 }

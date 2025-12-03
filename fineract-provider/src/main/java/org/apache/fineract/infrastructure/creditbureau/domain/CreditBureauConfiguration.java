@@ -50,19 +50,7 @@ public class CreditBureauConfiguration extends AbstractPersistableCustom<Long> {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "organisation_creditbureau_id")
-    private OrganisationCreditBureau organisationCreditbureau;
-
-    public static CreditBureauConfiguration fromJson(JsonCommand command, OrganisationCreditBureau organisation_creditbureau) {
-        final String configkey = command.stringValueOfParameterNamed("configkey");
-        final String value = command.stringValueOfParameterNamed("value");
-        final String description = command.stringValueOfParameterNamed("description");
-
-        return new CreditBureauConfiguration().setConfigurationKey(configkey).setValue(value).setDescription(description)
-                .setOrganisationCreditbureau(organisation_creditbureau);
-
-    }
+    
 
     public Map<String, Object> update(final JsonCommand command) {
 

@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.fineract.cob.loan.LoanCOBConstant;
 import org.apache.fineract.infrastructure.businessdate.domain.BusinessDateType;
 import org.apache.fineract.infrastructure.core.domain.ActionContext;
 import org.apache.fineract.infrastructure.core.service.ThreadLocalContextUtil;
@@ -46,6 +45,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class InitialisationTasklet implements Tasklet {
 
     private final AppUserRepositoryWrapper userRepository;
+    
+    // Define COB constant locally since we removed the loan-specific import
+    private static final String BUSINESS_DATE_PARAMETER_NAME = "businessDate";
 
     @Override
     public RepeatStatus execute(@NonNull StepContribution contribution, @NonNull ChunkContext chunkContext) throws Exception {
@@ -56,7 +58,7 @@ public class InitialisationTasklet implements Tasklet {
         ThreadLocalContextUtil.setActionContext(ActionContext.COB);
 
         String businessDateString = Objects.requireNonNull((String) chunkContext.getStepContext().getStepExecution().getJobExecution()
-                .getExecutionContext().get(LoanCOBConstant.BUSINESS_DATE_PARAMETER_NAME));
+                .getExecutionContext().get(BUSINESS_DATE_PARAMETER_NAME));
         LocalDate businessDate = LocalDate.parse(businessDateString, DateTimeFormatter.ISO_DATE);
 
         businessDates.put(BusinessDateType.COB_DATE, businessDate);

@@ -20,7 +20,6 @@ package org.apache.fineract.portfolio.search.service;
 
 import java.util.List;
 import org.apache.fineract.portfolio.search.data.AdHocQuerySearchConditions;
-import org.apache.fineract.portfolio.search.data.AdHocSearchQueryData;
 import org.apache.fineract.portfolio.search.data.SearchConditions;
 import org.apache.fineract.portfolio.search.data.SearchData;
 
@@ -28,7 +27,4 @@ public interface SearchReadPlatformService {
 
     List<SearchData> retriveMatchingData(SearchConditions searchConditions);
 
-    AdHocSearchQueryData retrieveAdHocQueryTemplate();
-
-    List<AdHocSearchQueryData> retrieveAdHocQueryMatchingData(AdHocQuerySearchConditions searchConditions);
 }

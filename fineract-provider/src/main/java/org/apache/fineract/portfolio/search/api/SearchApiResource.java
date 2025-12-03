@@ -41,7 +41,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.fineract.portfolio.search.SearchConstants.SearchResponseParameters;
 import org.apache.fineract.portfolio.search.data.AdHocQueryDataValidator;
 import org.apache.fineract.portfolio.search.data.AdHocQuerySearchConditions;
-import org.apache.fineract.portfolio.search.data.AdHocSearchQueryData;
+//import org.apache.fineract.portfolio.search.data.AdHocSearchQueryData;
 import org.apache.fineract.portfolio.search.data.SearchConditions;
 import org.apache.fineract.portfolio.search.data.SearchData;
 import org.apache.fineract.portfolio.search.service.SearchReadPlatformService;
@@ -58,15 +58,15 @@ public class SearchApiResource {
     private final SearchReadPlatformService searchReadPlatformService;
     private final AdHocQueryDataValidator fromApiJsonDeserializer;
 
-    @GET
-    @Path("/template")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    @Operation(summary = "Retrive Adhoc Search query template", description = "Mandatory Fields\n" + "\n" + "search?query=000000001\n")
-    public AdHocSearchQueryData retrieveAdHocSearchQueryTemplate() {
+    // @GET
+    // @Path("/template")
+    // @Consumes({ MediaType.APPLICATION_JSON })
+    // @Produces({ MediaType.APPLICATION_JSON })
+    // @Operation(summary = "Retrive Adhoc Search query template", description = "Mandatory Fields\n" + "\n" + "search?query=000000001\n")
+    // public AdHocSearchQueryData retrieveAdHocSearchQueryTemplate() {
 
-        return this.searchReadPlatformService.retrieveAdHocQueryTemplate();
-    }
+    //     return this.searchReadPlatformService.retrieveAdHocQueryTemplate();
+    // }
 
     @GET
     @Consumes({ MediaType.APPLICATION_JSON })
@@ -84,22 +84,22 @@ public class SearchApiResource {
         return this.searchReadPlatformService.retriveMatchingData(searchConditions);
     }
 
-    @POST
-    @Path("/advance")
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_JSON })
-    @Operation(summary = "Adhoc query search", description = "AdHocQuery search has more search options, it is a POST request, it uses request body to send search parameters\n"
-            + "\n" + "\n" + "Mandatory fields:" + "entities" + "\n" + "\n" + "Optional fields:"
-            + "loanStatus, loanProducts, offices, loanDateOption, loanFromDate, loanToDate, \n"
-            + "includeOutStandingAmountPercentage, outStandingAmountPercentageCondition, \n"
-            + "minOutStandingAmountPercentage and maxOutStandingAmountPercentage OR outStandingAmountPercentage, \n"
-            + "includeOutstandingAmount, outstandingAmountCondition, \n"
-            + "minOutstandingAmount and maxOutstandingAmount OR outstandingAmount")
-    @RequestBody(required = true, content = @Content(schema = @Schema(implementation = SearchApiResourceSwagger.PostAdhocQuerySearchRequest.class)))
-    public List<AdHocSearchQueryData> advancedSearch(final String json) {
+    // @POST
+    // @Path("/advance")
+    // @Consumes({ MediaType.APPLICATION_JSON })
+    // @Produces({ MediaType.APPLICATION_JSON })
+    // @Operation(summary = "Adhoc query search", description = "AdHocQuery search has more search options, it is a POST request, it uses request body to send search parameters\n"
+    //         + "\n" + "\n" + "Mandatory fields:" + "entities" + "\n" + "\n" + "Optional fields:"
+    //         + "loanStatus, loanProducts, offices, loanDateOption, loanFromDate, loanToDate, \n"
+    //         + "includeOutStandingAmountPercentage, outStandingAmountPercentageCondition, \n"
+    //         + "minOutStandingAmountPercentage and maxOutStandingAmountPercentage OR outStandingAmountPercentage, \n"
+    //         + "includeOutstandingAmount, outstandingAmountCondition, \n"
+    //         + "minOutstandingAmount and maxOutstandingAmount OR outstandingAmount")
+    // @RequestBody(required = true, content = @Content(schema = @Schema(implementation = SearchApiResourceSwagger.PostAdhocQuerySearchRequest.class)))
+    // public List<AdHocSearchQueryData> advancedSearch(final String json) {
 
-        final AdHocQuerySearchConditions searchConditions = this.fromApiJsonDeserializer.retrieveSearchConditions(json);
+    //     final AdHocQuerySearchConditions searchConditions = this.fromApiJsonDeserializer.retrieveSearchConditions(json);
 
-        return this.searchReadPlatformService.retrieveAdHocQueryMatchingData(searchConditions);
-    }
+    //     return this.searchReadPlatformService.retrieveAdHocQueryMatchingData(searchConditions);
+    // }
 }

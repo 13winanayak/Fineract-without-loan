@@ -40,8 +40,8 @@ import org.apache.fineract.infrastructure.core.filters.RequestResponseFilter;
 import org.apache.fineract.infrastructure.core.serialization.ToApiJsonSerializer;
 import org.apache.fineract.infrastructure.core.service.MDCWrapper;
 import org.apache.fineract.infrastructure.instancemode.filter.FineractInstanceModeApiFilter;
-import org.apache.fineract.infrastructure.jobs.filter.LoanCOBApiFilter;
-import org.apache.fineract.infrastructure.jobs.filter.LoanCOBFilterHelper;
+//import org.apache.fineract.infrastructure.jobs.filter.LoanCOBApiFilter;
+//import org.apache.fineract.infrastructure.jobs.filter.LoanCOBFilterHelper;
 import org.apache.fineract.infrastructure.security.data.PlatformRequestLog;
 import org.apache.fineract.infrastructure.security.filter.TenantAwareBasicAuthenticationFilter;
 import org.apache.fineract.infrastructure.security.filter.TwoFactorAuthenticationFilter;
@@ -110,8 +110,7 @@ public class SecurityConfig {
     @Autowired
     private FineractRequestContextHolder fineractRequestContextHolder;
 
-    @Autowired(required = false)
-    private LoanCOBFilterHelper loanCOBFilterHelper;
+   
     @Autowired
     private IdempotencyStoreHelper idempotencyStoreHelper;
 
@@ -168,12 +167,6 @@ public class SecurityConfig {
                 .addFilterAfter(requestResponseFilter(), ExceptionTranslationFilter.class) //
                 .addFilterAfter(correlationHeaderFilter(), RequestResponseFilter.class) //
                 .addFilterAfter(fineractInstanceModeApiFilter(), CorrelationHeaderFilter.class); //
-        if (!Objects.isNull(loanCOBFilterHelper)) {
-            http.addFilterAfter(loanCOBApiFilter(), FineractInstanceModeApiFilter.class) //
-                    .addFilterAfter(idempotencyStoreFilter(), LoanCOBApiFilter.class); //
-        } else {
-            http.addFilterAfter(idempotencyStoreFilter(), FineractInstanceModeApiFilter.class); //
-        }
         if (fineractProperties.getIpTracking().isEnabled()) {
             http.addFilterAfter(callerIpTrackingFilter(), RequestResponseFilter.class);
         }
@@ -196,9 +189,7 @@ public class SecurityConfig {
         return new RequestResponseFilter();
     }
 
-    public LoanCOBApiFilter loanCOBApiFilter() {
-        return new LoanCOBApiFilter(loanCOBFilterHelper);
-    }
+    
 
     public TwoFactorAuthenticationFilter twoFactorAuthenticationFilter() {
         TwoFactorService twoFactorService = applicationContext.getBean(TwoFactorService.class);

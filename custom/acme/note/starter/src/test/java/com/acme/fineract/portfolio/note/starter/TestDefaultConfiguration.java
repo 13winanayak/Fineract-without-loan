@@ -26,9 +26,9 @@ import org.apache.fineract.infrastructure.core.service.database.RoutingDataSourc
 import org.apache.fineract.infrastructure.core.service.database.RoutingDataSourceServiceFactory;
 import org.apache.fineract.portfolio.client.domain.ClientRepositoryWrapper;
 import org.apache.fineract.portfolio.group.domain.GroupRepository;
-import org.apache.fineract.portfolio.loanaccount.domain.LoanRepositoryWrapper;
-import org.apache.fineract.portfolio.loanaccount.domain.LoanTransactionRepository;
-import org.apache.fineract.portfolio.note.domain.NoteRepository;
+// import org.apache.fineract.portfolio.loanaccount.domain.LoanRepositoryWrapper;
+// import org.apache.fineract.portfolio.loanaccount.domain.LoanTransactionRepository;
+// import org.apache.fineract.portfolio.note.domain.NoteRepository;
 import org.apache.fineract.portfolio.note.serialization.NoteCommandFromApiJsonDeserializer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

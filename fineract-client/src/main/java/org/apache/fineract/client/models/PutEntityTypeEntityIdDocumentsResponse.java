@@ -16,12 +16,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.fineract.accounting.journalentry.service;
+package org.apache.fineract.client.models;
 
-import org.apache.fineract.accounting.journalentry.data.LoanDTO;
+/**
+ * PutEntityTypeEntityIdDocumentsResponse - manually created stub for missing model
+ */
+public class PutEntityTypeEntityIdDocumentsResponse {
 
-public interface AccountingProcessorForLoan {
+    private Long resourceId;
 
-    void createJournalEntriesForLoan(LoanDTO loanDTO);
+    public Long getResourceId() {
+        return resourceId;
+    }
 
+    public void setResourceId(Long resourceId) {
+        this.resourceId = resourceId;
+    }
 }

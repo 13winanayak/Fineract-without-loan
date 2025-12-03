@@ -77,16 +77,10 @@ public class StandingInstructionWritePlatformServiceImpl implements StandingInst
                         .assembleSavingsToSavingsTransfer(command);
                 this.accountTransferDetailRepository.saveAndFlush(standingInstruction);
                 standingInstructionId = standingInstruction.accountTransferStandingInstruction().getId();
-            } else if (isSavingsToLoanAccountTransfer(fromAccountType, toAccountType)) {
-                final AccountTransferDetails standingInstruction = this.standingInstructionAssembler.assembleSavingsToLoanTransfer(command);
-                this.accountTransferDetailRepository.saveAndFlush(standingInstruction);
-                standingInstructionId = standingInstruction.accountTransferStandingInstruction().getId();
-            } else if (isLoanToSavingsAccountTransfer(fromAccountType, toAccountType)) {
-
-                final AccountTransferDetails standingInstruction = this.standingInstructionAssembler.assembleLoanToSavingsTransfer(command);
-                this.accountTransferDetailRepository.saveAndFlush(standingInstruction);
-                standingInstructionId = standingInstruction.accountTransferStandingInstruction().getId();
-
+            } else {
+                // Only savings-to-savings transfers are supported after loan functionality removal
+                throw new UnsupportedOperationException("Only savings-to-savings standing instructions are supported. "
+                        + "From account type: " + fromAccountType + ", To account type: " + toAccountType);
             }
         } catch (final JpaSystemException | DataIntegrityViolationException dve) {
             final Throwable throwable = dve.getMostSpecificCause();
@@ -107,14 +101,6 @@ public class StandingInstructionWritePlatformServiceImpl implements StandingInst
         log.error("Error occured.", dve);
         throw ErrorHandler.getMappable(dve, "error.msg.client.unknown.data.integrity.issue",
                 "Unknown data integrity issue with resource: " + realCause.getMessage());
-    }
-
-    private boolean isLoanToSavingsAccountTransfer(final PortfolioAccountType fromAccountType, final PortfolioAccountType toAccountType) {
-        return fromAccountType.isLoanAccount() && toAccountType.isSavingsAccount();
-    }
-
-    private boolean isSavingsToLoanAccountTransfer(final PortfolioAccountType fromAccountType, final PortfolioAccountType toAccountType) {
-        return fromAccountType.isSavingsAccount() && toAccountType.isLoanAccount();
     }
 
     private boolean isSavingsToSavingsAccountTransfer(final PortfolioAccountType fromAccountType,

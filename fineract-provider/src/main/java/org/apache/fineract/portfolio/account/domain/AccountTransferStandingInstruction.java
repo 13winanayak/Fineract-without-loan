@@ -262,10 +262,11 @@ public class AccountTransferStandingInstruction extends AbstractPersistableCusto
         if (this.accountTransferDetails.transferType().isAccountTransfer()
                 && (this.accountTransferDetails.fromSavingsAccount() == null || this.accountTransferDetails.toSavingsAccount() == null)) {
             errorCode = "not.account.transfer";
-        } else if (this.accountTransferDetails.transferType().isLoanRepayment()
-                && (this.accountTransferDetails.fromSavingsAccount() == null || this.accountTransferDetails.toLoanAccount() == null)) {
-            errorCode = "not.loan.repayment";
-        }
+         } 
+         //else if (this.accountTransferDetails.transferType().isLoanRepayment()
+        //         && (this.accountTransferDetails.fromSavingsAccount() == null || this.accountTransferDetails.toLoanAccount() == null)) {
+        //     errorCode = "not.loan.repayment";
+        // }
         if (errorCode != null) {
             baseDataValidator.reset().parameter(transferTypeParamName).failWithCode(errorCode);
         }

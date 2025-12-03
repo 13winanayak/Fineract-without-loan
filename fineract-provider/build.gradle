@@ -344,7 +344,6 @@ generateGitProperties.outputs.upToDateWhen { false }
 // NOTE: Gradle suggested these dependencies
 if (!skipOpenApi) {
     jar.dependsOn resolve
-    test.dependsOn resolve
     checkstyleMain.dependsOn resolve
     // checkstyleTest.dependsOn resolve  // Commented out - tests disabled
     spotbugsTest.dependsOn resolve
@@ -356,8 +355,10 @@ rat.dependsOn prepareInputYaml
 // compileTestJava.dependsOn ':fineract-client:processResources', ':fineract-avro-schemas:processResources'  // Commented out - tests disabled
 
 tasks.withType(Checkstyle).configureEach { enabled = false }
-tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach { mustRunAfter tasks.named('resolve') }
-tasks.named('spotbugsTest').configure { enabled = false }
+
+tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
+    dependsOn tasks.named('resolve')
+}
 
 tasks.register('devRun', org.springframework.boot.gradle.tasks.run.BootRun) {
     description = 'Runs the application quickly for development by skipping quality checks'

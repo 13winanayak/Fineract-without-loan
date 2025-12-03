@@ -228,3 +228,6 @@ tasks.withType(Checkstyle) {
     enabled = false
 }
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['-Xlint:-options']
+}

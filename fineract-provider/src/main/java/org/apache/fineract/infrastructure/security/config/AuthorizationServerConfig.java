@@ -33,8 +33,8 @@ import org.apache.fineract.infrastructure.core.filters.IdempotencyStoreHelper;
 import org.apache.fineract.infrastructure.core.filters.RequestResponseFilter;
 import org.apache.fineract.infrastructure.core.service.MDCWrapper;
 import org.apache.fineract.infrastructure.instancemode.filter.FineractInstanceModeApiFilter;
-import org.apache.fineract.infrastructure.jobs.filter.LoanCOBApiFilter;
-import org.apache.fineract.infrastructure.jobs.filter.LoanCOBFilterHelper;
+//import org.apache.fineract.infrastructure.jobs.filter.LoanCOBApiFilter;
+//import org.apache.fineract.infrastructure.jobs.filter.LoanCOBFilterHelper;
 import org.apache.fineract.infrastructure.security.converter.FineractJwtAuthenticationTokenConverter;
 import org.apache.fineract.infrastructure.security.data.TenantAuthenticationDetails;
 import org.apache.fineract.infrastructure.security.filter.BusinessDateFilter;
@@ -96,8 +96,8 @@ public class AuthorizationServerConfig {
     @Autowired
     private MDCWrapper mdcWrapper;
 
-    @Autowired(required = false)
-    private LoanCOBFilterHelper loanCOBFilterHelper;
+    // @Autowired(required = false)
+    // private LoanCOBFilterHelper loanCOBFilterHelper;
 
     @Autowired
     private IdempotencyStoreHelper idempotencyStoreHelper;
@@ -159,12 +159,6 @@ public class AuthorizationServerConfig {
                 .addFilterAfter(requestResponseFilter(), ExceptionTranslationFilter.class) //
                 .addFilterAfter(correlationHeaderFilter(), RequestResponseFilter.class) //
                 .addFilterAfter(fineractInstanceModeApiFilter(), CorrelationHeaderFilter.class); //
-        if (!Objects.isNull(loanCOBFilterHelper)) {
-            http.addFilterAfter(loanCOBApiFilter(), FineractInstanceModeApiFilter.class) //
-                    .addFilterAfter(idempotencyStoreFilter(), LoanCOBApiFilter.class); //
-        } else {
-            http.addFilterAfter(idempotencyStoreFilter(), FineractInstanceModeApiFilter.class); //
-        }
         if (fineractProperties.getIpTracking().isEnabled()) {
             http.addFilterAfter(callerIpTrackingFilter(), RequestResponseFilter.class);
         }
@@ -245,9 +239,9 @@ public class AuthorizationServerConfig {
         return new RequestResponseFilter();
     }
 
-    public LoanCOBApiFilter loanCOBApiFilter() {
-        return new LoanCOBApiFilter(loanCOBFilterHelper);
-    }
+    // public LoanCOBApiFilter loanCOBApiFilter() {
+    //     return new LoanCOBApiFilter(loanCOBFilterHelper);
+    // }
 
     public TwoFactorAuthenticationFilter twoFactorAuthenticationFilter() {
         TwoFactorService twoFactorService = applicationContext.getBean(TwoFactorService.class);
