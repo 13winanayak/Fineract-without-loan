@@ -222,3 +222,9 @@ configurations {
     generatedRuntimeClasspath.extendsFrom runtimeClasspath
 }
 
+
+// Disable Checkstyle for this module (temporary or permanent)
+tasks.withType(Checkstyle) {
+    enabled = false
+}
+

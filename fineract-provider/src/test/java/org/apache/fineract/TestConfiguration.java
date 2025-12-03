@@ -39,8 +39,6 @@ import org.apache.fineract.infrastructure.core.service.migration.TenantDatabaseS
 import org.apache.fineract.infrastructure.core.service.migration.TenantDatabaseUpgradeService;
 import org.apache.fineract.infrastructure.core.service.tenant.TenantDetailsService;
 import org.apache.fineract.infrastructure.dataqueries.service.GenericDataService;
-// import org.apache.fineract.infrastructure.jobs.ScheduledJobRunnerConfig;
-// import org.apache.fineract.infrastructure.jobs.service.JobRegisterService;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
@@ -63,7 +61,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -162,7 +159,6 @@ public class TestConfiguration {
     }
 
     // JobRegisterService bean removed as it depends on excluded modules
-
 
     @Bean
     public JdbcTemplate jdbcTemplate() {
