@@ -1670,10 +1670,32 @@ public class DepositAccountReadPlatformServiceImpl implements DepositAccountRead
             final boolean isRegularTransaction = false;
             final boolean isExceptionForBalanceCheck = false;
             final LocalDate transactionDate = JdbcSupport.getLocalDate(rs, TRANSACTION_DATE);
-            return new AccountTransferDTO(transactionDate, transactionAmount, PortfolioAccountType.SAVINGS, PortfolioAccountType.SAVINGS,
-                    fromAccountId, toAccountId, TRANSFER_INTEREST_TO_SAVINGS, null, null, null, null, null, null, null,
-                    AccountTransferType.INTEREST_TRANSFER.getValue(), null, null, ExternalId.empty(), null, null, null,
-                    isRegularTransaction, isExceptionForBalanceCheck);
+            return new AccountTransferDTO(
+        transactionDate,
+        transactionAmount,
+        PortfolioAccountType.SAVINGS,
+        PortfolioAccountType.SAVINGS,
+        fromAccountId,
+        toAccountId,
+        TRANSFER_INTEREST_TO_SAVINGS,
+        null,   // locale
+        null,   // fmt
+        null,   // paymentDetail
+        null,   // fromTransferType
+        null,   // toTransferType
+        null,   // chargeId
+
+        // ❌ YOU HAD 2 EXTRA nulls HERE — BOTH REMOVED ✅
+        AccountTransferType.INTEREST_TRANSFER.getValue(), // transferType ✅
+
+        null,   // accountTransferDetails
+        null,   // noteText
+        ExternalId.empty(),   // txnExternalId
+        null,   // toSavingsAccount
+        null,   // fromSavingsAccount
+        isRegularTransaction,
+        isExceptionForBalanceCheck
+);
         }
 
     }

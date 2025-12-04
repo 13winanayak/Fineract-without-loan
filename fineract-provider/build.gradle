@@ -350,6 +350,7 @@ if (!skipOpenApi) {
     spotbugsMain.dependsOn resolve
     resolveMainClassName.dependsOn resolve
     javadoc.dependsOn resolve
+    tasks.named('test') { dependsOn(resolve) }
 }
 rat.dependsOn prepareInputYaml
 // compileTestJava.dependsOn ':fineract-client:processResources', ':fineract-avro-schemas:processResources'  // Commented out - tests disabled

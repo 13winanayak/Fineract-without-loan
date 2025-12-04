@@ -23,7 +23,7 @@ import org.apache.fineract.infrastructure.security.service.PlatformSecurityConte
 import org.apache.fineract.portfolio.rate.domain.RateRepository;
 import org.apache.fineract.portfolio.rate.domain.RateRepositoryWrapper;
 import org.apache.fineract.portfolio.rate.serialization.RateDefinitionCommandFromApiJsonDeserializer;
-import org.apache.fineract.portfolio.rate.service.RateAssembler;
+//import org.apache.fineract.portfolio.rate.service.RateAssembler;
 import org.apache.fineract.portfolio.rate.service.RateReadService;
 import org.apache.fineract.portfolio.rate.service.RateReadServiceImpl;
 import org.apache.fineract.portfolio.rate.service.RateWriteService;
@@ -37,11 +37,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class RateConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean(RateAssembler.class)
-    public RateAssembler rateAssembler(FromJsonHelper fromApiJsonHelper, RateRepositoryWrapper rateRepository) {
-        return new RateAssembler(fromApiJsonHelper, rateRepository);
-    }
+    // @Bean
+    // @ConditionalOnMissingBean(RateAssembler.class)
+    // public RateAssembler rateAssembler(FromJsonHelper fromApiJsonHelper, RateRepositoryWrapper rateRepository) {
+    //     return new RateAssembler(fromApiJsonHelper, rateRepository);
+    // }
 
     @Bean
     @ConditionalOnMissingBean(RateReadService.class)

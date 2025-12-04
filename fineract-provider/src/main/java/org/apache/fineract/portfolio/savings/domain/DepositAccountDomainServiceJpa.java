@@ -231,10 +231,33 @@ public class DepositAccountDomainServiceJpa implements DepositAccountDomainServi
             final SavingsAccount toSavingsAccount = this.depositAccountAssembler.assembleFrom(toSavingsId,
                     DepositAccountType.SAVINGS_DEPOSIT);
             final boolean isExceptionForBalanceCheck = false;
-            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(closedDate, account.getAccountBalance(),
-                    PortfolioAccountType.SAVINGS, PortfolioAccountType.SAVINGS, null, null, transferDescription, locale, fmt, null, null,
-                    null, null, null, AccountTransferType.ACCOUNT_TRANSFER.getValue(), null, null, ExternalId.empty(), null,
-                    toSavingsAccount, account, isAccountTransfer, isExceptionForBalanceCheck);
+            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(
+        closedDate,
+        account.getAccountBalance(),
+        PortfolioAccountType.SAVINGS,
+        PortfolioAccountType.SAVINGS,
+        null,
+        null,
+        transferDescription,
+        null,   // locale (you passed null earlier, kept same)
+        fmt,
+        null,   // paymentDetail
+        null,   // fromTransferType
+        null,   // toTransferType
+        null,   // chargeId
+
+        // ❌ YOU HAD ONE EXTRA null HERE — REMOVED ✅
+        AccountTransferType.ACCOUNT_TRANSFER.getValue(), // transferType
+
+        null,   // accountTransferDetails
+        null,   // noteText
+        ExternalId.empty(),
+        toSavingsAccount,
+        account,
+        isAccountTransfer,
+        isExceptionForBalanceCheck
+);
+
             this.accountTransfersWritePlatformService.transferFunds(accountTransferDTO);
             updateAlreadyPostedTransactions(existingTransactionIds, account);
             postJournalEntries(account, existingTransactionIds, existingReversedTransactionIds, isAccountTransfer);
@@ -305,10 +328,32 @@ public class DepositAccountDomainServiceJpa implements DepositAccountDomainServi
             final SavingsAccount toSavingsAccount = this.depositAccountAssembler.assembleFrom(toSavingsId,
                     DepositAccountType.SAVINGS_DEPOSIT);
             final boolean isExceptionForBalanceCheck = false;
-            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(closedDate, account.getAccountBalance(),
-                    PortfolioAccountType.SAVINGS, PortfolioAccountType.SAVINGS, null, null, transferDescription, null, fmt, null, null,
-                    null, null, null, AccountTransferType.ACCOUNT_TRANSFER.getValue(), null, null, ExternalId.empty(), null,
-                    toSavingsAccount, account, isAccountTransfer, isExceptionForBalanceCheck);
+            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(
+        closedDate,
+        account.getAccountBalance(),
+        PortfolioAccountType.SAVINGS,
+        PortfolioAccountType.SAVINGS,
+        null,
+        null,
+        transferDescription,
+        null,   // locale (you passed null earlier, kept same)
+        fmt,
+        null,   // paymentDetail
+        null,   // fromTransferType
+        null,   // toTransferType
+        null,   // chargeId
+
+        // ❌ YOU HAD ONE EXTRA null HERE — REMOVED ✅
+        AccountTransferType.ACCOUNT_TRANSFER.getValue(), // transferType
+
+        null,   // accountTransferDetails
+        null,   // noteText
+        ExternalId.empty(),
+        toSavingsAccount,
+        account,
+        isAccountTransfer,
+        isExceptionForBalanceCheck
+);
             this.accountTransfersWritePlatformService.transferFunds(accountTransferDTO);
             updateAlreadyPostedTransactions(existingTransactionIds, account);
             account.updateClosedStatus();
@@ -389,10 +434,33 @@ public class DepositAccountDomainServiceJpa implements DepositAccountDomainServi
             final SavingsAccount toSavingsAccount = this.depositAccountAssembler.assembleFrom(toSavingsId,
                     DepositAccountType.SAVINGS_DEPOSIT);
             final boolean isExceptionForBalanceCheck = false;
-            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(closedDate, transactionAmount,
-                    PortfolioAccountType.SAVINGS, PortfolioAccountType.SAVINGS, null, null, transferDescription, locale, fmt, null, null,
-                    null, null, null, AccountTransferType.ACCOUNT_TRANSFER.getValue(), null, null, ExternalId.empty(), null,
-                    toSavingsAccount, account, isRegularTransaction, isExceptionForBalanceCheck);
+            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(
+        closedDate,
+        account.getAccountBalance(),
+        PortfolioAccountType.SAVINGS,
+        PortfolioAccountType.SAVINGS,
+        null,
+        null,
+        transferDescription,
+        null,   // locale (you passed null earlier, kept same)
+        fmt,
+        null,   // paymentDetail
+        null,   // fromTransferType
+        null,   // toTransferType
+        null,   // chargeId
+
+        // ❌ YOU HAD ONE EXTRA null HERE — REMOVED ✅
+        AccountTransferType.ACCOUNT_TRANSFER.getValue(), // transferType
+
+        null,   // accountTransferDetails
+        null,   // noteText
+        ExternalId.empty(),
+        toSavingsAccount,
+        account,
+        isAccountTransfer,
+        isExceptionForBalanceCheck
+);
+
             this.accountTransfersWritePlatformService.transferFunds(accountTransferDTO);
             updateAlreadyPostedTransactions(existingTransactionIds, account);
         } else {
@@ -478,10 +546,32 @@ public class DepositAccountDomainServiceJpa implements DepositAccountDomainServi
             final String transferDescription = command.stringValueOfParameterNamed(transferDescriptionParamName);
             final SavingsAccount toSavingsAccount = this.depositAccountAssembler.assembleFrom(toSavingsId,
                     DepositAccountType.SAVINGS_DEPOSIT);
-            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(closedDate, account.getAccountBalance(),
-                    PortfolioAccountType.SAVINGS, PortfolioAccountType.SAVINGS, null, null, transferDescription, locale, fmt, null, null,
-                    null, null, null, AccountTransferType.ACCOUNT_TRANSFER.getValue(), null, null, ExternalId.empty(), null,
-                    toSavingsAccount, account, isRegularTransaction, isExceptionForBalanceCheck);
+            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(
+        closedDate,
+        account.getAccountBalance(),
+        PortfolioAccountType.SAVINGS,
+        PortfolioAccountType.SAVINGS,
+        null,
+        null,
+        transferDescription,
+        null,   // locale (you passed null earlier, kept same)
+        fmt,
+        null,   // paymentDetail
+        null,   // fromTransferType
+        null,   // toTransferType
+        null,   // chargeId
+
+        // ❌ YOU HAD ONE EXTRA null HERE — REMOVED ✅
+        AccountTransferType.ACCOUNT_TRANSFER.getValue(), // transferType
+
+        null,   // accountTransferDetails
+        null,   // noteText
+        ExternalId.empty(),
+        toSavingsAccount,
+        account,
+        isAccountTransfer,
+        isExceptionForBalanceCheck
+);
             this.accountTransfersWritePlatformService.transferFunds(accountTransferDTO);
             updateAlreadyPostedTransactions(existingTransactionIds, account);
         } else {
@@ -534,10 +624,32 @@ public class DepositAccountDomainServiceJpa implements DepositAccountDomainServi
             final String transferDescription = command.stringValueOfParameterNamed(transferDescriptionParamName);
             final SavingsAccount toSavingsAccount = this.depositAccountAssembler.assembleFrom(toSavingsId,
                     DepositAccountType.SAVINGS_DEPOSIT);
-            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(closedDate, account.getAccountBalance(),
-                    PortfolioAccountType.SAVINGS, PortfolioAccountType.SAVINGS, null, null, transferDescription, locale, fmt, null, null,
-                    null, null, null, AccountTransferType.ACCOUNT_TRANSFER.getValue(), null, null, ExternalId.empty(), null,
-                    toSavingsAccount, account, isRegularTransaction, isExceptionForBalanceCheck);
+            final AccountTransferDTO accountTransferDTO = new AccountTransferDTO(
+        closedDate,
+        account.getAccountBalance(),
+        PortfolioAccountType.SAVINGS,
+        PortfolioAccountType.SAVINGS,
+        null,
+        null,
+        transferDescription,
+        null,   // locale (you passed null earlier, kept same)
+        fmt,
+        null,   // paymentDetail
+        null,   // fromTransferType
+        null,   // toTransferType
+        null,   // chargeId
+
+        // ❌ YOU HAD ONE EXTRA null HERE — REMOVED ✅
+        AccountTransferType.ACCOUNT_TRANSFER.getValue(), // transferType
+
+        null,   // accountTransferDetails
+        null,   // noteText
+        ExternalId.empty(),
+        toSavingsAccount,
+        account,
+        isAccountTransfer,
+        isExceptionForBalanceCheck
+);
             this.accountTransfersWritePlatformService.transferFunds(accountTransferDTO);
             updateAlreadyPostedTransactions(existingTransactionIds, account);
         } else {
