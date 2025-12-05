@@ -33,8 +33,8 @@ import org.apache.fineract.commands.domain.CommandWrapper;
 import org.apache.fineract.commands.service.CommandWrapperBuilder;
 import org.apache.fineract.commands.service.PortfolioCommandSourceWritePlatformService;
 import org.apache.fineract.infrastructure.core.data.CommandProcessingResult;
-import org.apache.fineract.portfolio.collateralmanagement.data.LoanCollateralResponseData;
-import org.apache.fineract.portfolio.collateralmanagement.service.LoanCollateralManagementReadPlatformService;
+//import org.apache.fineract.portfolio.collateralmanagement.data.LoanCollateralResponseData;
+//import org.apache.fineract.portfolio.collateralmanagement.service.LoanCollateralManagementReadPlatformService;
 import org.springframework.stereotype.Component;
 
 @Path("/v1/loan-collateral-management")
@@ -44,7 +44,7 @@ import org.springframework.stereotype.Component;
 public class LoanCollateralManagementApiResource {
 
     private final PortfolioCommandSourceWritePlatformService commandsSourceWritePlatformService;
-    private final LoanCollateralManagementReadPlatformService loanCollateralManagementReadPlatformService;
+    //private final LoanCollateralManagementReadPlatformService loanCollateralManagementReadPlatformService;
 
     @DELETE
     @Path("{id}")
@@ -58,14 +58,6 @@ public class LoanCollateralManagementApiResource {
         return this.commandsSourceWritePlatformService.logCommandSource(commandWrapper);
     }
 
-    @GET
-    @Path("{collateralId}")
-    @Produces({ MediaType.APPLICATION_JSON })
-    @Consumes({ MediaType.APPLICATION_JSON })
-    @Operation(description = "Get Loan Collateral Details", summary = "Get Loan Collateral Details")
-    public LoanCollateralResponseData getLoanCollateral(
-            @PathParam("collateralId") @Parameter(description = "collateralId") final Long collateralId) {
-        return this.loanCollateralManagementReadPlatformService.getLoanCollateralResponseData(collateralId);
-    }
+    
 
 }

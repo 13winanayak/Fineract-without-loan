@@ -16,6 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+// can be wrong .
+
+
 package org.apache.fineract.portfolio.client.service;
 
 import java.math.BigDecimal;
@@ -54,7 +59,6 @@ import org.apache.fineract.portfolio.client.domain.ClientRepositoryWrapper;
 import org.apache.fineract.portfolio.client.domain.ClientStatus;
 import org.apache.fineract.portfolio.client.exception.ClientNotFoundException;
 import org.apache.fineract.portfolio.client.mapper.ClientMapper;
-import org.apache.fineract.portfolio.collateralmanagement.domain.ClientCollateralManagement;
 import org.apache.fineract.portfolio.collateralmanagement.domain.ClientCollateralManagementRepositoryWrapper;
 import org.apache.fineract.portfolio.group.data.GroupGeneralData;
 import org.apache.fineract.useradministration.domain.AppUser;
@@ -206,73 +210,7 @@ public class ClientReadPlatformServiceImpl implements ClientReadPlatformService 
         return extraCriteria;
     }
 
-    @Override
-    public ClientData retrieveOne(final Long clientId) {
-        try {
-            final String hierarchy = this.context.officeHierarchy();
-            final String hierarchySearchString = hierarchy + "%";
-
-            final Client client = clientRepositoryWrapper.getClientByClientIdAndHierarchy(clientId, hierarchySearchString);
-            final ClientData clientData = clientMapper.map(client);
-
-            // Get client collaterals
-            final Collection<ClientCollateralManagement> clientCollateralManagements = this.clientCollateralManagementRepositoryWrapper
-                    .getCollateralsPerClient(clientId);
-            final Set<ClientCollateralManagementData> clientCollateralManagementDataSet = new HashSet<>();
-
-            // Map to client collateral data class
-            for (ClientCollateralManagement clientCollateralManagement : clientCollateralManagements) {
-                BigDecimal total = clientCollateralManagement.getTotal();
-                BigDecimal totalCollateral = clientCollateralManagement.getTotalCollateral(total);
-                clientCollateralManagementDataSet.add(new ClientCollateralManagementData(clientCollateralManagement.getId(),
-                        clientCollateralManagement.getCollaterals().getName(), clientCollateralManagement.getQuantity(),
-                        clientCollateralManagement.getCollaterals().getPctToBase(),
-                        clientCollateralManagement.getCollaterals().getBasePrice(), total, totalCollateral));
-            }
-
-            final String clientGroupsSql = "select " + this.clientGroupsMapper.parentGroupsSchema();
-
-            final Collection<GroupGeneralData> parentGroups = this.jdbcTemplate.query(clientGroupsSql, this.clientGroupsMapper, // NOSONAR
-                    clientId);
-
-            return ClientData.setParentGroups(clientData, parentGroups, clientCollateralManagementDataSet);
-
-        } catch (final EmptyResultDataAccessException e) {
-            throw new ClientNotFoundException(clientId, e);
-        }
-    }
-
-    @Override
-    public Collection<ClientData> retrieveAllForLookup(final String extraCriteria) {
-
-        String sql = "select " + this.lookupMapper.schema();
-
-        if (StringUtils.isNotBlank(extraCriteria)) {
-            sql += " and (" + extraCriteria + ")";
-            this.columnValidator.validateSqlInjection(sql, extraCriteria);
-        }
-        return this.jdbcTemplate.query(sql, this.lookupMapper); // NOSONAR
-    }
-
-    @Override
-    public Collection<ClientData> retrieveAllForLookupByOfficeId(final Long officeId) {
-
-        final String sql = "select " + this.lookupMapper.schema() + " where c.office_id = ? and c.status_enum != ?";
-
-        return this.jdbcTemplate.query(sql, this.lookupMapper, officeId, ClientStatus.CLOSED.getValue()); // NOSONAR
-    }
-
-    @Override
-    public Collection<ClientData> retrieveClientMembersOfGroup(final Long groupId) {
-
-        final AppUser currentUser = this.context.authenticatedUser();
-        final String hierarchy = currentUser.getOffice().getHierarchy();
-        final String hierarchySearchString = hierarchy + "%";
-
-        final String sql = "select " + this.membersOfGroupMapper.schema() + " where o.hierarchy like ? and pgc.group_id = ?";
-
-        return this.jdbcTemplate.query(sql, this.membersOfGroupMapper, hierarchySearchString, groupId); // NOSONAR
-    }
+    
 
     @Override
     public Collection<ClientData> retrieveActiveClientMembersOfGroup(final Long groupId) {
@@ -772,6 +710,30 @@ public class ClientReadPlatformServiceImpl implements ClientReadPlatformService 
                     clienttype, classification, legalForm, clientNonPerson, isStaff);
 
         }
+    }
+
+    @Override
+    public ClientData retrieveOne(Long clientId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'retrieveOne'");
+    }
+
+    @Override
+    public Collection<ClientData> retrieveAllForLookup(String extraCriteria) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'retrieveAllForLookup'");
+    }
+
+    @Override
+    public Collection<ClientData> retrieveAllForLookupByOfficeId(Long officeId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'retrieveAllForLookupByOfficeId'");
+    }
+
+    @Override
+    public Collection<ClientData> retrieveClientMembersOfGroup(Long groupId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'retrieveClientMembersOfGroup'");
     }
 
 }

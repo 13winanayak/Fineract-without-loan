@@ -58,10 +58,10 @@ public class TestDefaultConfiguration {
         return mock(JdbcTemplate.class);
     }
 
-    @Bean
-    public NoteRepository noteRepository() {
-        return mock(NoteRepository.class);
-    }
+    // @Bean
+    // public NoteRepository noteRepository() {
+    //     return mock(NoteRepository.class);
+    // }
 
     @Bean
     public ClientRepositoryWrapper clientRepository() {
@@ -73,15 +73,15 @@ public class TestDefaultConfiguration {
         return mock(GroupRepository.class);
     }
 
-    @Bean
-    public LoanRepositoryWrapper loanRepository() {
-        return mock(LoanRepositoryWrapper.class);
-    }
+    // @Bean
+    // public LoanRepositoryWrapper loanRepository() {
+    //     return mock(LoanRepositoryWrapper.class);
+    // }
 
-    @Bean
-    public LoanTransactionRepository loanTransactionRepository() {
-        return mock(LoanTransactionRepository.class);
-    }
+    // @Bean
+    // public LoanTransactionRepository loanTransactionRepository() {
+    //     return mock(LoanTransactionRepository.class);
+    // }
 
     @Bean
     public NoteCommandFromApiJsonDeserializer fromApiJsonDeserializer(FromJsonHelper fromJsonHelper) {
